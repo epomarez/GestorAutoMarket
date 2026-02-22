@@ -29,7 +29,7 @@ namespace GestorAutoMarket.AccesoDatos
 
         // A continuación, se añadirán algunos métodos básicos para gestionar estas colecciones, como agregar nuevos elementos.
 
-        public bool addCategoriaVehiculo(CategoriaVehiculo categoria)
+        public static bool addCategoriaVehiculo(CategoriaVehiculo categoria)
         {
             for (int i = 0; i < categorias.Length; i++)
             {
@@ -42,7 +42,7 @@ namespace GestorAutoMarket.AccesoDatos
             return false; // No se pudo agregar, el arreglo está lleno
         }
 
-        public bool addVehiculo(Vehiculo vehiculo)
+        public static bool addVehiculo(Vehiculo vehiculo)
         {
             for (int i = 0; i < vehiculos.Length; i++)
             {
@@ -55,7 +55,7 @@ namespace GestorAutoMarket.AccesoDatos
             return false; // No se pudo agregar, el arreglo está lleno
         }
 
-        public bool addVendedor(Vendedor vendedor)
+        public static bool addVendedor(Vendedor vendedor)
         {
             for (int i = 0; i < vendedores.Length; i++)
             {
@@ -68,7 +68,7 @@ namespace GestorAutoMarket.AccesoDatos
             return false; // No se pudo agregar, el arreglo está lleno
         }
 
-        public bool addSucursal(Sucursal sucursal)
+        public static bool addSucursal(Sucursal sucursal)
         {
             for (int i = 0; i < sucursals.Length; i++)
             {
@@ -81,7 +81,7 @@ namespace GestorAutoMarket.AccesoDatos
             return false; // No se pudo agregar, el arreglo está lleno
         }
 
-        public bool addCliente(Cliente cliente)
+        public static bool addCliente(Cliente cliente)
         {
             for (int i = 0; i < clientes.Length; i++)
             {
@@ -94,7 +94,7 @@ namespace GestorAutoMarket.AccesoDatos
             return false; // No se pudo agregar, el arreglo está lleno
         }
 
-        public bool addVehiculoXSucursal(VehiculoXSucursal vehiculoXSucursal)
+        public static bool addVehiculoXSucursal(VehiculoXSucursal vehiculoXSucursal)
         {
             for (int i = 0; i < vehiculoXSucursals.Length; i++)
             {
@@ -108,34 +108,34 @@ namespace GestorAutoMarket.AccesoDatos
         }
 
         // En esta parte se implementarán los métodos para consultar alguno de los arreglos por entero, no por id.
-            public CategoriaVehiculo[] getCategorias()
+        public static CategoriaVehiculo[] getCategorias()
             {
                 return categorias;
             }
 
-            public Vehiculo[] getVehiculos()
+        public static Vehiculo[] getVehiculos()
             {
                 return vehiculos;
             }
 
-            public Vendedor[] getVendedores()
+        public static Vendedor[] getVendedores()
             {
                 return vendedores;
             }
 
-            public Sucursal[] getSucursals()
+        public static Sucursal[] getSucursales()
             {
                 return sucursals;
             }
 
-            public Cliente[] getClientes()
+        public static Cliente[] getClientes()
             {
                 return clientes;
             }
 
-            public VehiculoXSucursal[] getVehiculoXSucursals()
-            {
-                return vehiculoXSucursals;
-
+        public static VehiculoXSucursal[] getVehiculoXSucursal()
+        {
+            return vehiculoXSucursals;
         }
+    }
 }

@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="GestorAutoMarket.AccesoDatos/GestorAutoMarket.AccesoDatos.csproj" />
   <Project Path="GestorAutoMarket.Entidades/GestorAutoMarket.Entidades.csproj" />
+  <Project Path="GestorAutoMarket.LogicaNegocios/GestorAutoMarket.LogicaNegocios.csproj" Id="4ce361cf-4eb8-4a23-87de-18f7b44608cb" />
+  <Project Path="GestorAutoMarket.Vista/GestorAutoMarket.Vista.csproj" Id="2f667b4a-e1c4-4121-b20f-a04490066885" />
 </Solution>

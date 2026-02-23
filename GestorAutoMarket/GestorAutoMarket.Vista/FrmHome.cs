@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+    UNED I Cuatrimestre.
+    Proyecto 1: Gestor AutoMarket.
+    Descripcion: Este es un proyecto en C# desarrollado en Visual Studio 2022, 
+    y forma parte del curso de Programación Avanzada en la UNED (Costa Rica).
+    Estudiante: Edrey Pomarez.
+    Fecha: 22 de Febrero del 2026
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +28,20 @@ namespace GestorAutoMarket.Vista
 
         private void tCMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Obtener el TabPage seleccionado
+
+            cargarGridView();
+
+        }
+
+        private void FrmHome_Load(object sender, EventArgs e)
+        {
+            cargarGridView();
+        }
+
+        // Este método lo abstraje para evitar repetir código, me permite obtener
+        // los datos para el gridview según el TabPage seleccionado
+        private void cargarGridView()
+        {
             var selectedTab = tCMenu.SelectedTab;
             if (selectedTab == null) return;
 
@@ -42,6 +63,37 @@ namespace GestorAutoMarket.Vista
                     dgvInfoArreglos.DataSource = VendedorLN.getVendedores();
                     break;
 
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var selectedTab = tCMenu.SelectedTab;
+            if (selectedTab == null) return;
+
+            switch (selectedTab.Text) { 
+                case "Categorías de Vehículo":
+                    FrmAddCategoriaVehiculo frmAddCategoriaVehiculo = new FrmAddCategoriaVehiculo();
+                    frmAddCategoriaVehiculo.ShowDialog();
+                    break;
+                case "Clientes":
+                    FrmAddCliente frmAddCliente = new FrmAddCliente();
+                    frmAddCliente.ShowDialog();
+                    break;
+                case "Vehiculos":
+                    FrmAddVehiculo frmAddVehiculo = new FrmAddVehiculo();
+                    frmAddVehiculo.ShowDialog();
+                    break;
+                case "Vendedores":
+                    FrmVendedor frmAddVendedor = new FrmVendedor();
+                    frmAddVendedor.ShowDialog();
+                    break;
+                case "Sucursales":
+                    FrmAddSucursal frmAddSucursal = new FrmAddSucursal();
+                    frmAddSucursal.ShowDialog();
+                    break;
+                case "SucursalXVehiculo":
+                    break;
             }
         }
     }

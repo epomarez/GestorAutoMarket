@@ -35,6 +35,8 @@
             tPVendedor = new TabPage();
             tPCliente = new TabPage();
             dgvInfoArreglos = new DataGridView();
+            btnAniadirElemento = new Button();
+            tPSucursalXVehiculo = new TabPage();
             tCMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvInfoArreglos).BeginInit();
             SuspendLayout();
@@ -46,11 +48,12 @@
             tCMenu.Controls.Add(tPSucursal);
             tCMenu.Controls.Add(tPVendedor);
             tCMenu.Controls.Add(tPCliente);
-            tCMenu.Location = new Point(120, 57);
+            tCMenu.Controls.Add(tPSucursalXVehiculo);
+            tCMenu.Location = new Point(120, 49);
             tCMenu.Multiline = true;
             tCMenu.Name = "tCMenu";
             tCMenu.SelectedIndex = 0;
-            tCMenu.Size = new Size(567, 39);
+            tCMenu.Size = new Size(751, 39);
             tCMenu.TabIndex = 0;
             tCMenu.SelectedIndexChanged += tCMenu_SelectedIndexChanged;
             // 
@@ -59,7 +62,7 @@
             tPCategoriaVehiculo.Location = new Point(4, 34);
             tPCategoriaVehiculo.Name = "tPCategoriaVehiculo";
             tPCategoriaVehiculo.Padding = new Padding(3);
-            tPCategoriaVehiculo.Size = new Size(563, 1);
+            tPCategoriaVehiculo.Size = new Size(743, 1);
             tPCategoriaVehiculo.TabIndex = 0;
             tPCategoriaVehiculo.Text = "Categorías de Vehículo";
             tPCategoriaVehiculo.UseVisualStyleBackColor = true;
@@ -69,7 +72,7 @@
             tPVehiculo.Location = new Point(4, 34);
             tPVehiculo.Name = "tPVehiculo";
             tPVehiculo.Padding = new Padding(3);
-            tPVehiculo.Size = new Size(563, 1);
+            tPVehiculo.Size = new Size(743, 1);
             tPVehiculo.TabIndex = 1;
             tPVehiculo.Text = "Vehiculos";
             tPVehiculo.UseVisualStyleBackColor = true;
@@ -79,7 +82,7 @@
             tPSucursal.Location = new Point(4, 34);
             tPSucursal.Name = "tPSucursal";
             tPSucursal.Padding = new Padding(3);
-            tPSucursal.Size = new Size(559, 1);
+            tPSucursal.Size = new Size(743, 1);
             tPSucursal.TabIndex = 2;
             tPSucursal.Text = "Sucursales";
             tPSucursal.UseVisualStyleBackColor = true;
@@ -88,7 +91,7 @@
             // 
             tPVendedor.Location = new Point(4, 34);
             tPVendedor.Name = "tPVendedor";
-            tPVendedor.Size = new Size(563, 1);
+            tPVendedor.Size = new Size(559, 1);
             tPVendedor.TabIndex = 3;
             tPVendedor.Text = "Vendedores";
             tPVendedor.UseVisualStyleBackColor = true;
@@ -97,7 +100,7 @@
             // 
             tPCliente.Location = new Point(4, 34);
             tPCliente.Name = "tPCliente";
-            tPCliente.Size = new Size(563, 1);
+            tPCliente.Size = new Size(559, 1);
             tPCliente.TabIndex = 4;
             tPCliente.Text = "Clientes";
             tPCliente.UseVisualStyleBackColor = true;
@@ -116,15 +119,36 @@
             dgvInfoArreglos.Size = new Size(855, 357);
             dgvInfoArreglos.TabIndex = 1;
             // 
+            // btnAniadirElemento
+            // 
+            btnAniadirElemento.Location = new Point(773, 470);
+            btnAniadirElemento.Name = "btnAniadirElemento";
+            btnAniadirElemento.Size = new Size(112, 34);
+            btnAniadirElemento.TabIndex = 2;
+            btnAniadirElemento.Text = "Añadir";
+            btnAniadirElemento.UseVisualStyleBackColor = true;
+            btnAniadirElemento.Click += button1_Click;
+            // 
+            // tPSucursalXVehiculo
+            // 
+            tPSucursalXVehiculo.Location = new Point(4, 34);
+            tPSucursalXVehiculo.Name = "tPSucursalXVehiculo";
+            tPSucursalXVehiculo.Size = new Size(743, 1);
+            tPSucursalXVehiculo.TabIndex = 5;
+            tPSucursalXVehiculo.Text = "SucursalXVehiculo";
+            tPSucursalXVehiculo.UseVisualStyleBackColor = true;
+            // 
             // FrmHome
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1050, 491);
+            ClientSize = new Size(1064, 525);
+            Controls.Add(btnAniadirElemento);
             Controls.Add(dgvInfoArreglos);
             Controls.Add(tCMenu);
             Name = "FrmHome";
             Text = "FrmHome";
+            Load += FrmHome_Load;
             tCMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvInfoArreglos).EndInit();
             ResumeLayout(false);
@@ -139,5 +163,7 @@
         private TabPage tPVendedor;
         private TabPage tPCliente;
         private DataGridView dgvInfoArreglos;
+        private Button btnAniadirElemento;
+        private TabPage tPSucursalXVehiculo;
     }
 }

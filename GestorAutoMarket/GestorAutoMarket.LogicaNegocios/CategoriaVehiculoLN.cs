@@ -9,7 +9,7 @@ namespace GestorAutoMarket.LogicaNegocios
 {
     public class CategoriaVehiculoLN
     {
-        public bool addCategoriaVehiculo(CategoriaVehiculo categoria)
+        public static bool addCategoriaVehiculo(CategoriaVehiculo categoria)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public CategoriaVehiculo[] getCategoriasVehiculo()
+        public static CategoriaVehiculo[] getCategoriasVehiculo()
         {
             try
             {

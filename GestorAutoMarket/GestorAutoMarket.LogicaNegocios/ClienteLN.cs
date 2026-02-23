@@ -9,7 +9,7 @@ namespace GestorAutoMarket.LogicaNegocios
 {
     public class ClienteLN
     {
-        public bool addCliente(Cliente cliente)
+        public static bool addCliente(Cliente cliente)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public Cliente[] getClientes()
+        public static Cliente[] getClientes()
         {
             try
             {

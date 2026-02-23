@@ -9,7 +9,7 @@ namespace GestorAutoMarket.LogicaNegocios
 {
     public class SucursalLN
     {
-        public bool addSucursal(Sucursal sucursal)
+        public static bool addSucursal(Sucursal sucursal)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public Sucursal[] getSucursales()
+        public static Sucursal[] getSucursales()
         {
             try
             {

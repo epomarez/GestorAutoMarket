@@ -10,7 +10,7 @@ namespace GestorAutoMarket.LogicaNegocios
 {
     public class VendedorLN
     {
-        public bool addVendedor(Vendedor vendedor)
+        public static bool addVendedor(Vendedor vendedor)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public Vendedor[] getVendedores()
+        public static Vendedor[] getVendedores()
         {
             try
             {

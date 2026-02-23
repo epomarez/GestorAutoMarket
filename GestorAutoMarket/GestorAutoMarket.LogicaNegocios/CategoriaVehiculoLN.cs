@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+    UNED I Cuatrimestre.
+    Proyecto 1: Gestor AutoMarket.
+    Descripcion: Este es un proyecto en C# desarrollado en Visual Studio 2022, 
+    y forma parte del curso de Programación Avanzada en la UNED (Costa Rica).
+    Estudiante: Edrey Pomarez.
+    Fecha: 22 de Febrero del 2026
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +17,13 @@ namespace GestorAutoMarket.LogicaNegocios
 {
     public class CategoriaVehiculoLN
     {
+        public static int cantidadCategorias = 0;
         public static bool addCategoriaVehiculo(CategoriaVehiculo categoria)
         {
             try
             {
                 if (categoria == null) return false;
+                cantidadCategorias++;
                 return AccesoDatos.DataAccess.addCategoriaVehiculo(categoria);
             }
             catch (Exception ex)

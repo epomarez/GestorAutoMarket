@@ -11,9 +11,9 @@ namespace GestorAutoMarket.Entidades
 {
     public class VehiculoXSucursal
     {
-        private Vehiculo vehiculo { get; set; }
-        private Sucursal sucursal { get; set; }
-        private int cantidad { get; set; }
+        public Vehiculo vehiculo { get; set; }
+        public Sucursal sucursal { get; set; }
+        public int cantidad { get; set; }
 
         public VehiculoXSucursal(Vehiculo vehiculo, Sucursal sucursal, int cantidad)
         {

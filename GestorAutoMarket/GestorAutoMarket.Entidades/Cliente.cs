@@ -11,7 +11,7 @@ namespace GestorAutoMarket.Entidades
 {
     public class Cliente : Persona
     {
-        private DateTime fechaRegistro { get; set; }
+        public DateTime fechaRegistro { get; set; }
 
         public Cliente(int id, string identificacion, string nombreCompleto,
             DateTime fechaNacimiento, DateTime fechaRegistro) : base(id, identificacion, nombreCompleto, fechaNacimiento)

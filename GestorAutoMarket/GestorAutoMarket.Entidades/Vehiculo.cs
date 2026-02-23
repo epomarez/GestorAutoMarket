@@ -11,13 +11,29 @@ namespace GestorAutoMarket.Entidades
 {
     public class Vehiculo
     {
-        private int idVehiculo { get; set; }
-        private string marca { get; set; }
-        private string modelo { get; set; }
-        private int anio { get; set; }
-        private decimal precio { get; set; }
+        public int idVehiculo { get; private set; }
+        public string marca { get; private set; }
+        public string modelo { get; private set; }
+        public int anio { get; private set; }
+        public decimal precio { get; private set; }
         private CategoriaVehiculo categoria { get; set; }
-        private bool estado { get; set; }
+
+        public int categoriaId 
+        {
+            get { return categoria != null ? categoria.idCategoria : 0; }
+        }
+
+        public string nombreCategoria
+        {
+            get { return categoria != null ? categoria.nombreCategoria : "Sin categoría"; }
+        }
+
+        public string descripcionCategoria
+        {
+            get { return categoria != null ? categoria.descripcion : "Sin descripción"; }
+        }
+
+        public bool estado { get; private set; }
 
         public Vehiculo(int idVehiculo, string marca, string modelo, int anio, decimal precio, CategoriaVehiculo categoria, bool estado)
         {

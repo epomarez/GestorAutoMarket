@@ -15,7 +15,7 @@ namespace GestorAutoMarket.Entidades
         public Sucursal sucursal { get; set; }
         public int cantidad { get; set; }
 
-        public VehiculoXSucursal(Vehiculo vehiculo, Sucursal sucursal, int cantidad)
+        public VehiculoXSucursal( Sucursal sucursal, Vehiculo vehiculo, int cantidad)
         {
             this.vehiculo = vehiculo;
             this.sucursal = sucursal;

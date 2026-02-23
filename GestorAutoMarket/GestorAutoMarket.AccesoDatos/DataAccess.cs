@@ -20,6 +20,7 @@ namespace GestorAutoMarket.AccesoDatos
 {
     public class DataAccess
     {
+
         private static CategoriaVehiculo[] categorias = new CategoriaVehiculo[20];
         private static Vehiculo[] vehiculos = new Vehiculo[50];
         private static Vendedor[] vendedores = new Vendedor[20];

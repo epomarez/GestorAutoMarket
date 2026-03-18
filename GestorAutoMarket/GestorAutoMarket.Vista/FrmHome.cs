@@ -75,10 +75,12 @@ namespace GestorAutoMarket.Vista
                 case "Categorías de Vehículo":
                     FrmAddCategoriaVehiculo frmAddCategoriaVehiculo = new FrmAddCategoriaVehiculo();
                     frmAddCategoriaVehiculo.ShowDialog();
+                    cargarGridView();
                     break;
                 case "Clientes":
                     FrmAddCliente frmAddCliente = new FrmAddCliente();
                     frmAddCliente.ShowDialog();
+                    cargarGridView();
                     break;
                 case "Vehiculos":
                     FrmAddVehiculo frmAddVehiculo = new FrmAddVehiculo();
@@ -87,14 +89,17 @@ namespace GestorAutoMarket.Vista
                 case "Vendedores":
                     FrmVendedor frmAddVendedor = new FrmVendedor();
                     frmAddVendedor.ShowDialog();
+                    cargarGridView();
                     break;
                 case "Sucursales":
                     FrmAddSucursal frmAddSucursal = new FrmAddSucursal();
                     frmAddSucursal.ShowDialog();
+                    cargarGridView();
                     break;
                 case "SucursalXVehiculo":
                     new FrmAddSucursalXVehiculo().ShowDialog();
                     frmAddSucursal.ShowDialog();
+                    cargarGridView();
                     break;
             }
         }

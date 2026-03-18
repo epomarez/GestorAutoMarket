@@ -29,29 +29,34 @@ namespace GestorAutoMarket.Vista
 
         private void FrmAddSucursal_Load(object sender, EventArgs e)
         {
-            string nombre = txtBxNombre.Text.Trim();
-            string direccion = txtBxDireccion.Text.Trim();
-            string telefono = nUDTelefono.Value.ToString();
-            Vendedor vendedorSeleccionado;
-            if (comBxEncargado.SelectedIndex == null)
-            {
-                MessageBox.Show("Por favor, seleccione un encargado válido.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+            try{
+                 string nombre = txtBxNombre.Text.Trim();
+                string direccion = txtBxDireccion.Text.Trim();
+                string telefono = nUDTelefono.Value.ToString();
+                Vendedor vendedorSeleccionado;
+                if (comBxEncargado.SelectedIndex == null)
+                {
+                    MessageBox.Show("Por favor, seleccione un encargado válido.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else { 
+                    vendedorSeleccionado = (Vendedor)comBxEncargado.SelectedItem;
+                }
+                bool disponible = chkBxDisponible.Checked;
+                Sucursal nuevaSucursal = new Sucursal(SucursalLN.cantidadSucursales, nombre, 
+                    direccion, telefono, vendedorSeleccionado, disponible);
+                SucursalLN.addSucursal(nuevaSucursal);
+    
+                txtBxDireccion.Clear();
+                txtBxNombre.Clear();
+                nUDTelefono.Value = 0;
+                comBxEncargado.SelectedIndex = -1;
+                disponible = false;
+            }catch(Exception ex){
+                MessageBox.Show("Error al registrar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else { 
-                vendedorSeleccionado = (Vendedor)comBxEncargado.SelectedItem;
-            }
-            bool disponible = chkBxDisponible.Checked;
-            Sucursal nuevaSucursal = new Sucursal(SucursalLN.cantidadSucursales, nombre, 
-                direccion, telefono, vendedorSeleccionado, disponible);
-            SucursalLN.addSucursal(nuevaSucursal);
-
-            txtBxDireccion.Clear();
-            txtBxNombre.Clear();
-            nUDTelefono.Value = 0;
-            comBxEncargado.SelectedIndex = -1;
-            disponible = false;
+           
 
 
         }

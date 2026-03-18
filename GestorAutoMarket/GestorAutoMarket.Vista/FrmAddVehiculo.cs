@@ -61,32 +61,35 @@ namespace GestorAutoMarket.Vista
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            string marca = txtBxMarca.Text.Trim();
-            string modelo = txtBxModelo.Text.Trim();
-            int anio = (int)nUDAnio.Value;
-            decimal precio = nUDPrecio.Value;
-            CategoriaVehiculo categoriaSeleccionada;
-            if (comBxCategorias.SelectedItem == null)
-            {
-                MessageBox.Show("Por favor, seleccione una categoría válida.", "Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else { 
-                categoriaSeleccionada = (CategoriaVehiculo)comBxCategorias.SelectedItem;
-            }
-            bool estado = chBxEstado.Checked;
 
-            VehiculoLN.addVehiculo(
-                new Vehiculo (VehiculoLN.cantidadVehiculos,marca, modelo, anio,
-                precio, categoriaSeleccionada, estado) );
-
-            txtBxMarca.Clear();
-            txtBxModelo.Clear();
-            nUDAnio.Value = nUDAnio.Minimum;
-            nUDPrecio.Value = nUDPrecio.Minimum;
-            comBxCategorias.SelectedIndex = -1;
-            chBxEstado.Checked = false;
+            try{}catch(Exception ex){
+                string marca = txtBxMarca.Text.Trim();
+                string modelo = txtBxModelo.Text.Trim();
+                int anio = (int)nUDAnio.Value;
+                decimal precio = nUDPrecio.Value;
+                CategoriaVehiculo categoriaSeleccionada;
+                if (comBxCategorias.SelectedItem == null)
+                {
+                    MessageBox.Show("Por favor, seleccione una categoría válida.", "Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else { 
+                    categoriaSeleccionada = (CategoriaVehiculo)comBxCategorias.SelectedItem;
+                }
+                bool estado = chBxEstado.Checked;
+    
+                VehiculoLN.addVehiculo(
+                    new Vehiculo (VehiculoLN.cantidadVehiculos,marca, modelo, anio,
+                    precio, categoriaSeleccionada, estado) );
+    
+                txtBxMarca.Clear();
+                txtBxModelo.Clear();
+                nUDAnio.Value = nUDAnio.Minimum;
+                nUDPrecio.Value = nUDPrecio.Minimum;
+                comBxCategorias.SelectedIndex = -1;
+                chBxEstado.Checked = false;
+            }
 
         }
     }

@@ -30,15 +30,19 @@ namespace GestorAutoMarket.Vista
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            string nombreCategoria = txtBxNombreCategoria.Text.Trim();
-            string descripcionCategoria = txtBxDescripcionCategoria.Text.Trim();
-            CategoriaVehiculo categoriaVehiculo = new CategoriaVehiculo(CategoriaVehiculoLN.cantidadCategorias, 
-                nombreCategoria, descripcionCategoria);
-            CategoriaVehiculoLN.addCategoriaVehiculo(categoriaVehiculo);
-            MessageBox.Show("Categoría de vehículo agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            txtBxNombreCategoria.Clear();
-            txtBxDescripcionCategoria.Clear();
+            try{
+                string nombreCategoria = txtBxNombreCategoria.Text.Trim();
+                string descripcionCategoria = txtBxDescripcionCategoria.Text.Trim();
+                CategoriaVehiculo categoriaVehiculo = new CategoriaVehiculo(CategoriaVehiculoLN.cantidadCategorias, 
+                    nombreCategoria, descripcionCategoria);
+                CategoriaVehiculoLN.addCategoriaVehiculo(categoriaVehiculo);
+                MessageBox.Show("Categoría de vehículo agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtBxNombreCategoria.Clear();
+                txtBxDescripcionCategoria.Clear();
+            } catch(Exception ex){
+                MessageBox.Show("Error al registrar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+   
         }
     }
 }

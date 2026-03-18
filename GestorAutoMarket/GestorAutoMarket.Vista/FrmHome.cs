@@ -93,6 +93,8 @@ namespace GestorAutoMarket.Vista
                     frmAddSucursal.ShowDialog();
                     break;
                 case "SucursalXVehiculo":
+                    new FrmAddSucursalXVehiculo().ShowDialog();
+                    frmAddSucursal.ShowDialog();
                     break;
             }
         }

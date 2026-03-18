@@ -30,16 +30,21 @@ namespace GestorAutoMarket.Vista
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            string nombreCliente = txtBxNombre.Text.Trim();
-            string identificacionCliente = txtBxIdentificacion.Text.Trim();
-            DateTime fechaNacimientoCliente = dtpFechaNacimiento.Value;
-
-            Cliente cliente = new Cliente(ClienteLN.cantidadClientes, identificacionCliente, nombreCliente, fechaNacimientoCliente, DateTime.Today);
-            ClienteLN.addCliente(cliente);
-            MessageBox.Show("Cliente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            txtBxIdentificacion.Clear();
-            txtBxNombre.Clear();
-            dtpFechaNacimiento.Value = DateTime.Today;
+            try{
+                string nombreCliente = txtBxNombre.Text.Trim();
+                string identificacionCliente = txtBxIdentificacion.Text.Trim();
+                DateTime fechaNacimientoCliente = dtpFechaNacimiento.Value;
+    
+                Cliente cliente = new Cliente(ClienteLN.cantidadClientes, identificacionCliente, nombreCliente, fechaNacimientoCliente, DateTime.Today);
+                ClienteLN.addCliente(cliente);
+                MessageBox.Show("Cliente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtBxIdentificacion.Clear();
+                txtBxNombre.Clear();
+                dtpFechaNacimiento.Value = DateTime.Today;
+            }catch(Exception ex){
+                MessageBox.Show("Error al registrar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
         }
     }

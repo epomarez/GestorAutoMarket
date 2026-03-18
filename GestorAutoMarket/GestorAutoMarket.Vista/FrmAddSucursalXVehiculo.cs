@@ -77,22 +77,26 @@ namespace GestorAutoMarket.Vista
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            if (comBxSucursal.SelectedItem == null || comBxVehiculo.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar una sucursal y un vehículo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+            try{
+                if (comBxSucursal.SelectedItem == null || comBxVehiculo.SelectedItem == null)
+                {
+                    MessageBox.Show("Debe seleccionar una sucursal y un vehículo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else {
+                    Sucursal sucursalSeleccionada = (Sucursal)comBxSucursal.SelectedItem;
+                    Vehiculo vehiculoSeleccionado = (Vehiculo)comBxVehiculo.SelectedItem;
+                    int cantidad = (int)nUDCantidad.Value;
+                    VehiculoXSucursalLN.addVehiculoXSucursal(
+                        new VehiculoXSucursal(sucursalSeleccionada, vehiculoSeleccionado, cantidad));
+                }
+    
+                comBxSucursal.SelectedItem = null;
+                comBxVehiculo.SelectedItem = null;
+                nUDCantidad.Value = 1;
+            }catch(Exception ex){
+                MessageBox.Show("Error al registrar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else {
-                Sucursal sucursalSeleccionada = (Sucursal)comBxSucursal.SelectedItem;
-                Vehiculo vehiculoSeleccionado = (Vehiculo)comBxVehiculo.SelectedItem;
-                int cantidad = (int)nUDCantidad.Value;
-                VehiculoXSucursalLN.addVehiculoXSucursal(
-                    new VehiculoXSucursal(sucursalSeleccionada, vehiculoSeleccionado, cantidad));
-            }
-
-            comBxSucursal.SelectedItem = null;
-            comBxVehiculo.SelectedItem = null;
-            nUDCantidad.Value = 1;
 
         }
     }

@@ -25,7 +25,7 @@ namespace GestorAutoMarket.LogicaNegocios
             {
                 if (cliente == null) return false;
                 cantidadClientes++;
-                return AccesoDatos.DataAccess.addCliente(cliente);
+                return AccesoDatos.DataAccess.Add(Entidades.TipoEntidad.Cliente, cliente);
             }
             catch (Exception ex)
             {
@@ -37,7 +37,7 @@ namespace GestorAutoMarket.LogicaNegocios
         {
             try
             {
-                return AccesoDatos.DataAccess.getClientes();
+                return (Cliente[])AccesoDatos.DataAccess.GetAll(Entidades.TipoEntidad.Cliente);
             }
             catch (Exception ex)
             {

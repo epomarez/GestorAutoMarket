@@ -28,115 +28,54 @@ namespace GestorAutoMarket.AccesoDatos
         private static Cliente[] clientes = new Cliente[5];
         private static VehiculoXSucursal[] vehiculoXSucursals = new VehiculoXSucursal[100];
 
-        // A continuación, se añadirán algunos métodos básicos para gestionar estas colecciones, como agregar nuevos elementos.
+        // A continuación, se añadirán algunos métodos básicos para gestionar
+        // estas colecciones, como agregar nuevos elementos.
 
-        public static bool addCategoriaVehiculo(CategoriaVehiculo categoria)
+        // Estos métodos genéricos permitn manipular los arreglos según el tipo
+        // de entidad con que se quiera trabajar.
+        // Se sigue el principio de deep modules antes de shallow modules,
+        // para hacer el código más modular y fácil de mantener. Así como
+        // reducir la carga cognitiva del desarrolador, haciendo una interfaz de módulos más simple.
+        public static bool Add(TipoEntidad tipo, object entidad)
         {
-            for (int i = 0; i < categorias.Length; i++)
+            switch (tipo)
             {
-                if (categorias[i] == null)
-                {
-                    categorias[i] = categoria;
-                    return true; // Categoría agregada exitosamente
-                }
+                case TipoEntidad.Categoria: return InternalAdd(categorias, entidad);
+                case TipoEntidad.Vehiculo: return InternalAdd(vehiculos, entidad);
+                case TipoEntidad.Vendedor: return InternalAdd(vendedores, entidad);
+                case TipoEntidad.Sucursal: return InternalAdd(sucursals, entidad);
+                case TipoEntidad.Cliente: return InternalAdd(clientes, entidad);
+                case TipoEntidad.VehiculoXSucursal: return InternalAdd(vehiculoXSucursals, entidad);
+                default : return false;
             }
-            return false; // No se pudo agregar, el arreglo está lleno
         }
 
-        public static bool addVehiculo(Vehiculo vehiculo)
+        private static bool InternalAdd(object[] arreglo, object item)
         {
-            for (int i = 0; i < vehiculos.Length; i++)
+            for (int i = 0; i < arreglo.Length; i++)
             {
-                if (vehiculos[i] == null)
+                if (arreglo[i] == null)
                 {
-                    vehiculos[i] = vehiculo;
-                    return true; // Vehículo agregado exitosamente
+                    arreglo[i] = item;
+                    return true; // Elemento agregado exitosamente
                 }
             }
-            return false; // No se pudo agregar, el arreglo está lleno
+            return false;
         }
 
-        public static bool addVendedor(Vendedor vendedor)
+
+        public static object[] GetAll(TipoEntidad tipo)
         {
-            for (int i = 0; i < vendedores.Length; i++)
+            switch (tipo)
             {
-                if (vendedores[i] == null)
-                {
-                    vendedores[i] = vendedor;
-                    return true; // Vendedor agregado exitosamente
-                }
+                case TipoEntidad.Categoria: return categorias;
+                case TipoEntidad.Vehiculo: return vehiculos;
+                case TipoEntidad.Vendedor: return vendedores;
+                case TipoEntidad.Sucursal: return sucursals;
+                case TipoEntidad.Cliente: return clientes;
+                case TipoEntidad.VehiculoXSucursal: return vehiculoXSucursals;
+                default : return null;
             }
-            return false; // No se pudo agregar, el arreglo está lleno
-        }
-
-        public static bool addSucursal(Sucursal sucursal)
-        {
-            for (int i = 0; i < sucursals.Length; i++)
-            {
-                if (sucursals[i] == null)
-                {
-                    sucursals[i] = sucursal;
-                    return true; // Sucursal agregada exitosamente
-                }
-            }
-            return false; // No se pudo agregar, el arreglo está lleno
-        }
-
-        public static bool addCliente(Cliente cliente)
-        {
-            for (int i = 0; i < clientes.Length; i++)
-            {
-                if (clientes[i] == null)
-                {
-                    clientes[i] = cliente;
-                    return true; // Cliente agregado exitosamente
-                }
-            }
-            return false; // No se pudo agregar, el arreglo está lleno
-        }
-
-        public static bool addVehiculoXSucursal(VehiculoXSucursal vehiculoXSucursal)
-        {
-            for (int i = 0; i < vehiculoXSucursals.Length; i++)
-            {
-                if (vehiculoXSucursals[i] == null)
-                {
-                    vehiculoXSucursals[i] = vehiculoXSucursal;
-                    return true; // Vehículo por sucursal agregado exitosamente
-                }
-            }
-            return false; // No se pudo agregar, el arreglo está lleno
-        }
-
-        // En esta parte se implementarán los métodos para consultar alguno de los arreglos por entero, no por id.
-        public static CategoriaVehiculo[] getCategorias()
-            {
-                return categorias;
-            }
-
-        public static Vehiculo[] getVehiculos()
-            {
-                return vehiculos;
-            }
-
-        public static Vendedor[] getVendedores()
-            {
-                return vendedores;
-            }
-
-        public static Sucursal[] getSucursales()
-            {
-                return sucursals;
-            }
-
-        public static Cliente[] getClientes()
-            {
-                return clientes;
-            }
-
-        public static VehiculoXSucursal[] getVehiculoXSucursal()
-        {
-            return vehiculoXSucursals;
         }
     }
 }

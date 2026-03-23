@@ -25,7 +25,7 @@ namespace GestorAutoMarket.LogicaNegocios
             {
                 if (vendedor == null) return false;
                 cantidadVendedores++;
-                return AccesoDatos.DataAccess.addVendedor(vendedor);
+                return AccesoDatos.DataAccess.Add(Entidades.TipoEntidad.Vendedor,vendedor);
             }
             catch (Exception ex)
             {
@@ -38,7 +38,7 @@ namespace GestorAutoMarket.LogicaNegocios
         {
             try
             {
-                return AccesoDatos.DataAccess.getVendedores();
+                return (Vendedor[])AccesoDatos.DataAccess.GetAll(TipoEntidad.Vendedor);
             }
             catch (Exception ex)
             {

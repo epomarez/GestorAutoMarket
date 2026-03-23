@@ -24,7 +24,8 @@ namespace GestorAutoMarket.LogicaNegocios
             {
                 if (categoria == null) return false;
                 cantidadCategorias++;
-                return AccesoDatos.DataAccess.addCategoriaVehiculo(categoria);
+                return AccesoDatos.DataAccess.Add(Entidades.TipoEntidad.Categoria, categoria);
+                // AccesoDatos.DataAccess.addCategoriaVehiculo(categoria);
             }
             catch (Exception ex)
             {
@@ -36,7 +37,7 @@ namespace GestorAutoMarket.LogicaNegocios
         {
             try
             {
-                return AccesoDatos.DataAccess.getCategorias();
+                return (CategoriaVehiculo[])AccesoDatos.DataAccess.GetAll(TipoEntidad.Categoria);
             }
             catch (Exception ex)
             {

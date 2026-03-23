@@ -24,7 +24,7 @@ namespace GestorAutoMarket.LogicaNegocios
             {
                 if (sucursal == null) return false;
                 cantidadSucursales++;
-                return AccesoDatos.DataAccess.addSucursal(sucursal);
+                return AccesoDatos.DataAccess.Add(Entidades.TipoEntidad.Sucursal, sucursal);
             }
             catch (Exception ex)
             {
@@ -36,7 +36,7 @@ namespace GestorAutoMarket.LogicaNegocios
         {
             try
             {
-                return AccesoDatos.DataAccess.getSucursales();
+                return (Sucursal[])AccesoDatos.DataAccess.GetAll(Entidades.TipoEntidad.Sucursal);
             }
             catch (Exception ex)
             {

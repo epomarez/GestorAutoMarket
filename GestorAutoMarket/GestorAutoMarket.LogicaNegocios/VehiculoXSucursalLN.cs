@@ -24,7 +24,7 @@ namespace GestorAutoMarket.LogicaNegocios
             {
                 if (vehiculoSucursal == null) return false;
                 cantidadVehiculoXSucursal++;
-                return AccesoDatos.DataAccess.addVehiculoXSucursal(vehiculoSucursal);
+                return AccesoDatos.DataAccess.Add(Entidades.TipoEntidad.VehiculoXSucursal, vehiculoSucursal);
             }
             catch (Exception ex)
             {
@@ -36,7 +36,7 @@ namespace GestorAutoMarket.LogicaNegocios
         {
             try
             {
-                return AccesoDatos.DataAccess.getVehiculoXSucursal();
+                return (VehiculoXSucursal[])AccesoDatos.DataAccess.GetAll(Entidades.TipoEntidad.VehiculoXSucursal);
             }
             catch (Exception ex)
             {

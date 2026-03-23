@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestorAutoMarket.Entidades
 {
-    internal enum TipoEntidad
+    public enum TipoEntidad
     {
         Categoria,
         Vehiculo,

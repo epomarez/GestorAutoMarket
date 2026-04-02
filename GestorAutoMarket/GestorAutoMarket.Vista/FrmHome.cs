@@ -35,6 +35,7 @@ namespace GestorAutoMarket.Vista
         {
             var selectedTab = tCMenu.SelectedTab;
             if (selectedTab == null) return;
+            dgvInfoArreglos.DataSource = null;
 
             switch (selectedTab.Text)
             {
@@ -76,6 +77,7 @@ namespace GestorAutoMarket.Vista
                 case "Vehiculos":
                     FrmAddVehiculo frmAddVehiculo = new FrmAddVehiculo();
                     frmAddVehiculo.ShowDialog();
+                    cargarGridView();
                     break;
                 case "Vendedores":
                     FrmVendedor frmAddVendedor = new FrmVendedor();

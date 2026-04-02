@@ -33,9 +33,9 @@ namespace GestorAutoMarket.Entidades
             get { return categoria != null ? categoria.descripcion : "Sin descripción"; }
         }
 
-        public bool estado { get; private set; }
+        public char estado { get; private set; }
 
-        public Vehiculo(int idVehiculo, string marca, string modelo, int anio, decimal precio, CategoriaVehiculo categoria, bool estado)
+        public Vehiculo(int idVehiculo, string marca, string modelo, int anio, decimal precio, CategoriaVehiculo categoria, char estado)
         {
             this.idVehiculo = idVehiculo;
             this.marca = marca;

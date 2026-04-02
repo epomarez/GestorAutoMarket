@@ -39,10 +39,13 @@
             nUDPrecio = new NumericUpDown();
             nUDAnio = new NumericUpDown();
             comBxCategorias = new ComboBox();
-            chBxEstado = new CheckBox();
             btnConfirmar = new Button();
+            groupBox1 = new GroupBox();
+            rBtnNuevo = new RadioButton();
+            rBtnUsado = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)nUDPrecio).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nUDAnio).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -93,11 +96,10 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(90, 367);
+            label6.Location = new Point(21, 339);
             label6.Name = "label6";
-            label6.Size = new Size(66, 25);
+            label6.Size = new Size(0, 25);
             label6.TabIndex = 5;
-            label6.Text = "Estado";
             // 
             // txtBxMarca
             // 
@@ -140,16 +142,6 @@
             comBxCategorias.Size = new Size(182, 33);
             comBxCategorias.TabIndex = 10;
             // 
-            // chBxEstado
-            // 
-            chBxEstado.AutoSize = true;
-            chBxEstado.Location = new Point(238, 367);
-            chBxEstado.Name = "chBxEstado";
-            chBxEstado.Size = new Size(123, 29);
-            chBxEstado.TabIndex = 11;
-            chBxEstado.Text = "Disponible";
-            chBxEstado.UseVisualStyleBackColor = true;
-            // 
             // btnConfirmar
             // 
             btnConfirmar.Location = new Point(591, 395);
@@ -160,13 +152,46 @@
             btnConfirmar.UseVisualStyleBackColor = true;
             btnConfirmar.Click += btnConfirmar_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(rBtnUsado);
+            groupBox1.Controls.Add(rBtnNuevo);
+            groupBox1.Location = new Point(90, 348);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(310, 90);
+            groupBox1.TabIndex = 13;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Estado";
+            // 
+            // rBtnNuevo
+            // 
+            rBtnNuevo.AutoSize = true;
+            rBtnNuevo.Location = new Point(26, 47);
+            rBtnNuevo.Name = "rBtnNuevo";
+            rBtnNuevo.Size = new Size(89, 29);
+            rBtnNuevo.TabIndex = 0;
+            rBtnNuevo.TabStop = true;
+            rBtnNuevo.Text = "Nuevo";
+            rBtnNuevo.UseVisualStyleBackColor = true;
+            // 
+            // rBtnUsado
+            // 
+            rBtnUsado.AutoSize = true;
+            rBtnUsado.Location = new Point(185, 47);
+            rBtnUsado.Name = "rBtnUsado";
+            rBtnUsado.Size = new Size(88, 29);
+            rBtnUsado.TabIndex = 1;
+            rBtnUsado.TabStop = true;
+            rBtnUsado.Text = "Usado";
+            rBtnUsado.UseVisualStyleBackColor = true;
+            // 
             // FrmAddVehiculo
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBox1);
             Controls.Add(btnConfirmar);
-            Controls.Add(chBxEstado);
             Controls.Add(comBxCategorias);
             Controls.Add(nUDAnio);
             Controls.Add(nUDPrecio);
@@ -183,6 +208,8 @@
             Load += FrmAddVehiculo_Load;
             ((System.ComponentModel.ISupportInitialize)nUDPrecio).EndInit();
             ((System.ComponentModel.ISupportInitialize)nUDAnio).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,7 +227,9 @@
         private NumericUpDown nUDPrecio;
         private NumericUpDown nUDAnio;
         private ComboBox comBxCategorias;
-        private CheckBox chBxEstado;
         private Button btnConfirmar;
+        private GroupBox groupBox1;
+        private RadioButton rBtnNuevo;
+        private RadioButton rBtnUsado;
     }
 }

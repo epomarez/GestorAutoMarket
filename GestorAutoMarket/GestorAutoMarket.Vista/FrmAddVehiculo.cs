@@ -62,7 +62,7 @@ namespace GestorAutoMarket.Vista
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
 
-            try{}catch(Exception ex){
+            try {
                 string marca = txtBxMarca.Text.Trim();
                 string modelo = txtBxModelo.Text.Trim();
                 int anio = (int)nUDAnio.Value;
@@ -70,25 +70,46 @@ namespace GestorAutoMarket.Vista
                 CategoriaVehiculo categoriaSeleccionada;
                 if (comBxCategorias.SelectedItem == null)
                 {
-                    MessageBox.Show("Por favor, seleccione una categoría válida.", "Error", 
+                    MessageBox.Show("Por favor, seleccione una categoría válida.", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else { 
+                else
+                {
                     categoriaSeleccionada = (CategoriaVehiculo)comBxCategorias.SelectedItem;
                 }
-                bool estado = chBxEstado.Checked;
-    
+
+                char estado;
+                if (rBtnNuevo.Checked)
+                {
+                    estado = 'N';
+                }
+                else if (rBtnUsado.Checked)
+                {
+                    estado = 'U';
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un estado válido.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 VehiculoLN.addVehiculo(
-                    new Vehiculo (VehiculoLN.cantidadVehiculos,marca, modelo, anio,
-                    precio, categoriaSeleccionada, estado) );
-    
+                    new Vehiculo(VehiculoLN.cantidadVehiculos, marca, modelo, anio,
+                    precio, categoriaSeleccionada, estado));
+
                 txtBxMarca.Clear();
                 txtBxModelo.Clear();
                 nUDAnio.Value = nUDAnio.Minimum;
                 nUDPrecio.Value = nUDPrecio.Minimum;
                 comBxCategorias.SelectedIndex = -1;
-                chBxEstado.Checked = false;
+                rBtnNuevo.Checked = false;
+                rBtnUsado.Checked = false;
+            } catch (Exception ex) {
+                MessageBox.Show("Ocurrió un error al agregar el vehículo: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
 
         }

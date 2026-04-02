@@ -40,7 +40,7 @@ namespace GestorAutoMarket.Vista
                 txtBxNombreCategoria.Clear();
                 txtBxDescripcionCategoria.Clear();
             } catch(Exception ex){
-                MessageBox.Show("Error al registrar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al registrar Categoría: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
    
         }

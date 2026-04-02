@@ -6,15 +6,6 @@
     Estudiante: Edrey Pomarez.
     Fecha: 22 de Febrero del 2026
  */
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using GestorAutoMarket.LogicaNegocios;
 
 namespace GestorAutoMarket.Vista
@@ -66,7 +57,7 @@ namespace GestorAutoMarket.Vista
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAniadirElemento_Click(object sender, EventArgs e)
         {
             var selectedTab = tCMenu.SelectedTab;
             if (selectedTab == null) return;
@@ -97,8 +88,9 @@ namespace GestorAutoMarket.Vista
                     cargarGridView();
                     break;
                 case "SucursalXVehiculo":
-                    new FrmAddSucursalXVehiculo().ShowDialog();
-                    frmAddSucursal.ShowDialog();
+                    FrmAddSucursalXVehiculo frmAddSucursalXVehiculo =
+                    new FrmAddSucursalXVehiculo();
+                    frmAddSucursalXVehiculo.ShowDialog();
                     cargarGridView();
                     break;
             }

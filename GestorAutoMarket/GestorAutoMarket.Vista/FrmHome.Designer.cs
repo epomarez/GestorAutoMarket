@@ -127,7 +127,7 @@
             btnAniadirElemento.TabIndex = 2;
             btnAniadirElemento.Text = "Añadir";
             btnAniadirElemento.UseVisualStyleBackColor = true;
-            btnAniadirElemento.Click += button1_Click;
+            btnAniadirElemento.Click += btnAniadirElemento_Click;
             // 
             // tPSucursalXVehiculo
             // 

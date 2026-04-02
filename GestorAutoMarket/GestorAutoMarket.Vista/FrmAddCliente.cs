@@ -42,7 +42,7 @@ namespace GestorAutoMarket.Vista
                 txtBxNombre.Clear();
                 dtpFechaNacimiento.Value = DateTime.Today;
             }catch(Exception ex){
-                MessageBox.Show("Error al registrar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al registrar cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
 

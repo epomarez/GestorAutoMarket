@@ -38,7 +38,7 @@
             nUDTelefono = new NumericUpDown();
             comBxEncargado = new ComboBox();
             chkBxDisponible = new CheckBox();
-            button1 = new Button();
+            btnConfirmar = new Button();
             ((System.ComponentModel.ISupportInitialize)nUDTelefono).BeginInit();
             SuspendLayout();
             // 
@@ -129,21 +129,22 @@
             chkBxDisponible.Text = "Disponibilidad";
             chkBxDisponible.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnConfirmar
             // 
-            button1.Location = new Point(571, 315);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 10;
-            button1.Text = "Confirmar";
-            button1.UseVisualStyleBackColor = true;
+            btnConfirmar.Location = new Point(571, 315);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(112, 34);
+            btnConfirmar.TabIndex = 10;
+            btnConfirmar.Text = "Confirmar";
+            btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.Click += btnConfirmar_Click;
             // 
             // FrmAddSucursal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
+            Controls.Add(btnConfirmar);
             Controls.Add(chkBxDisponible);
             Controls.Add(comBxEncargado);
             Controls.Add(nUDTelefono);
@@ -174,6 +175,6 @@
         private NumericUpDown nUDTelefono;
         private ComboBox comBxEncargado;
         private CheckBox chkBxDisponible;
-        private Button button1;
+        private Button btnConfirmar;
     }
 }

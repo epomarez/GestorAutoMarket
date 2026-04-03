@@ -34,16 +34,43 @@ namespace GestorAutoMarket.Vista
                 string direccion = txtBxDireccion.Text.Trim();
                 string telefono = nUDTelefono.Value.ToString();
                 Vendedor vendedorSeleccionado;
-                if (comBxEncargado.SelectedIndex == null)
+
+                if (string.IsNullOrWhiteSpace(nombre))
                 {
-                    MessageBox.Show("Por favor, seleccione un encargado válido.", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El nombre de la sucursal es obligatorio.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBxNombre.Focus();
                     return;
                 }
-                else
+
+                if (string.IsNullOrWhiteSpace(direccion))
                 {
-                    vendedorSeleccionado = (Vendedor)comBxEncargado.SelectedItem;
+                    MessageBox.Show("La dirección de la sucursal es obligatoria.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBxDireccion.Focus();
+                    return;
                 }
+
+                if (string.IsNullOrWhiteSpace(telefono) || telefono.Length < 8)
+                {
+                    MessageBox.Show("El teléfono debe tener al menos 8 dígitos.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    nUDTelefono.Focus();
+                    return;
+                }
+
+
+
+                if (comBxEncargado.SelectedIndex == null)
+                {
+                    MessageBox.Show("Debe seleccionar un vendedor encargado.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    comBxEncargado.Focus();
+                    return;
+                }
+
+                vendedorSeleccionado = (Vendedor)comBxEncargado.SelectedItem;
+
                 bool disponible = chkBxDisponible.Checked;
                 Sucursal nuevaSucursal = new Sucursal(SucursalLN.cantidadSucursales, nombre,
                     direccion, telefono, vendedorSeleccionado, disponible);

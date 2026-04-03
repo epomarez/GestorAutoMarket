@@ -87,6 +87,14 @@ namespace GestorAutoMarket.Vista
                     Sucursal sucursalSeleccionada = (Sucursal)comBxSucursal.SelectedItem;
                     Vehiculo vehiculoSeleccionado = (Vehiculo)comBxVehiculo.SelectedItem;
                     int cantidad = (int)nUDCantidad.Value;
+
+                    if (cantidad <= 0)
+                    {
+                        MessageBox.Show("La cantidad debe ser mayor a 0.",
+                            "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     VehiculoXSucursalLN.addVehiculoXSucursal(
                         new VehiculoXSucursal(sucursalSeleccionada, vehiculoSeleccionado, cantidad));
                 }

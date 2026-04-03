@@ -67,17 +67,53 @@ namespace GestorAutoMarket.Vista
                 string modelo = txtBxModelo.Text.Trim();
                 int anio = (int)nUDAnio.Value;
                 decimal precio = nUDPrecio.Value;
-                CategoriaVehiculo categoriaSeleccionada;
-                if (comBxCategorias.SelectedItem == null)
+
+                if (string.IsNullOrWhiteSpace(marca))
                 {
-                    MessageBox.Show("Por favor, seleccione una categoría válida.", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("La marca del vehículo es obligatoria.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBxMarca.Focus();
                     return;
                 }
-                else
+
+                if (string.IsNullOrWhiteSpace(modelo))
                 {
-                    categoriaSeleccionada = (CategoriaVehiculo)comBxCategorias.SelectedItem;
+                    MessageBox.Show("El modelo del vehículo es obligatorio.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBxModelo.Focus();
+                    return;
                 }
+
+                if (anio < 1900 || anio > DateTime.Now.Year + 1)
+                {
+                    MessageBox.Show($"El año debe estar entre 1900 y {DateTime.Now.Year + 1}.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    nUDAnio.Focus();
+                    return;
+                }
+
+                if (precio <= 0)
+                {
+                    MessageBox.Show("El precio debe ser mayor a cero.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    nUDPrecio.Focus();
+                    return;
+                }
+
+                if (comBxCategorias.SelectedItem == null)
+                {
+                    MessageBox.Show("Debe seleccionar una categoría válida.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    comBxCategorias.Focus();
+                    return;
+                }
+
+
+
+
+                CategoriaVehiculo categoriaSeleccionada;
+                categoriaSeleccionada = (CategoriaVehiculo)comBxCategorias.SelectedItem;
+            
 
                 char estado;
                 if (rBtnNuevo.Checked)

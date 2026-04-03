@@ -33,6 +33,32 @@ namespace GestorAutoMarket.Vista
             try{
                 string nombreCategoria = txtBxNombreCategoria.Text.Trim();
                 string descripcionCategoria = txtBxDescripcionCategoria.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(nombreCategoria))
+                {
+                    MessageBox.Show("El nombre de la categoría es obligatorio.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBxNombreCategoria.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(descripcionCategoria))
+                {
+                    MessageBox.Show("La descripción de la categoría es obligatoria.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBxDescripcionCategoria.Focus();
+                    return;
+                }
+
+                if (nombreCategoria.Length < 3)
+                {
+                    MessageBox.Show("El nombre de la categoría debe tener al menos 3 caracteres.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBxNombreCategoria.Focus();
+                    return;
+                }
+
+
                 CategoriaVehiculo categoriaVehiculo = new CategoriaVehiculo(CategoriaVehiculoLN.cantidadCategorias, 
                     nombreCategoria, descripcionCategoria);
                 CategoriaVehiculoLN.addCategoriaVehiculo(categoriaVehiculo);

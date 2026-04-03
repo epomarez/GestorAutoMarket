@@ -34,7 +34,39 @@ namespace GestorAutoMarket.Vista
                 string nombreCliente = txtBxNombre.Text.Trim();
                 string identificacionCliente = txtBxIdentificacion.Text.Trim();
                 DateTime fechaNacimientoCliente = dtpFechaNacimiento.Value;
-    
+
+                if (string.IsNullOrWhiteSpace(nombreCliente))
+                {
+                    MessageBox.Show("El nombre completo es obligatorio.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBxNombre.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(identificacionCliente))
+                {
+                    MessageBox.Show("La identificación es obligatoria.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBxIdentificacion.Focus();
+                    return;
+                }
+
+                if (identificacionCliente.Length < 9)
+                {
+                    MessageBox.Show("La identificación debe tener al menos 9 caracteres.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBxIdentificacion.Focus();
+                    return;
+                }
+
+                if (fechaNacimientoCliente >= DateTime.Today)
+                {
+                    MessageBox.Show("La fecha de nacimiento no puede ser hoy o en el futuro.",
+                        "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dtpFechaNacimiento.Focus();
+                    return;
+                }
+
                 Cliente cliente = new Cliente(ClienteLN.cantidadClientes, identificacionCliente, nombreCliente, fechaNacimientoCliente, DateTime.Today);
                 ClienteLN.addCliente(cliente);
                 MessageBox.Show("Cliente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);

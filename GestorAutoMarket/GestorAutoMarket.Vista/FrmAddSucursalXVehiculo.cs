@@ -99,13 +99,20 @@ namespace GestorAutoMarket.Vista
                         new VehiculoXSucursal(sucursalSeleccionada, vehiculoSeleccionado, cantidad));
                 }
     
-                comBxSucursal.SelectedItem = null;
-                comBxVehiculo.SelectedItem = null;
-                nUDCantidad.Value = 1;
-            }catch(Exception ex){
+                Limpiarcampos();
+            }
+            catch(Exception ex){
                 MessageBox.Show("Error al registrar SucursalXVehiculo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void Limpiarcampos()
+        {
+            comBxSucursal.SelectedItem = null;
+            comBxVehiculo.SelectedItem = null;
+            nUDCantidad.Value = 1;
+            comBxSucursal.Focus();
         }
     }
 }

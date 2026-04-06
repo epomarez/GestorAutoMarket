@@ -21,5 +21,15 @@ namespace GestorAutoMarket.Entidades
             this.sucursal = sucursal;
             this.cantidad = cantidad;
         }
+
+        public int IdSucursal => sucursal?.idSucursal ?? 0;
+        public string NombreSucursal => sucursal?.nombreSucursal ?? "Sin sucursal";
+
+        public int IdVehiculo => vehiculo?.idVehiculo ?? 0;
+        public string Marca => vehiculo?.marca ?? "Sin marca";
+        public string Modelo => vehiculo?.modelo ?? "Sin modelo";
+        public int Anio => vehiculo?.anio ?? 0;
+        public decimal Precio => vehiculo?.precio ?? 0;
+        public string EstadoTexto => vehiculo?.estadoTexto ?? "—";
     }
 }

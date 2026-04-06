@@ -115,6 +115,11 @@ namespace GestorAutoMarket.Vista
                         dgvInfoArreglos.DataSource = VendedorLN.getVendedores();
                         ConfigurarColumnasVendedores();
                         break;
+                    case "SucursalXVehiculo":
+                        dgvInfoArreglos.DataSource = 
+                            VehiculoXSucursalLN.getVehiculosSucursal();
+                        ConfigurarColumnasSucursalXVehiculo();
+                        break;
 
                 }
             } catch (Exception ex)
@@ -188,6 +193,51 @@ namespace GestorAutoMarket.Vista
             {
                 DataPropertyName = "telefono",
                 HeaderText = "Teléfono"
+            });
+        }
+
+        private void ConfigurarColumnasSucursalXVehiculo()
+        {
+            dgvInfoArreglos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "NombreSucursal",
+                HeaderText = "Sucursal"
+            });
+
+            dgvInfoArreglos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Marca",
+                HeaderText = "Marca"
+            });
+
+            dgvInfoArreglos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Modelo",
+                HeaderText = "Modelo"
+            });
+
+            dgvInfoArreglos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Anio",
+                HeaderText = "Año"
+            });
+
+            dgvInfoArreglos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Precio",
+                HeaderText = "Precio"
+            });
+
+            dgvInfoArreglos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Cantidad",
+                HeaderText = "Cantidad"
+            });
+
+            dgvInfoArreglos.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "EstadoTexto",
+                HeaderText = "Estado"
             });
         }
         private void ConfigurarColumnasVehiculos()

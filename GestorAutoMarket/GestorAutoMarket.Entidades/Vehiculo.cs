@@ -35,6 +35,8 @@ namespace GestorAutoMarket.Entidades
 
         public char estado { get; private set; }
 
+        public string estadoTexto => estado == 'N' ? "Nuevo" :"Usado";
+
         public Vehiculo(int idVehiculo, string marca, string modelo, int anio, decimal precio, CategoriaVehiculo categoria, char estado)
         {
             this.idVehiculo = idVehiculo;

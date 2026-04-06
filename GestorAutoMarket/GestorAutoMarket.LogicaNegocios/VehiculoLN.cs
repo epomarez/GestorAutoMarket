@@ -6,11 +6,6 @@
     Estudiante: Edrey Pomarez.
     Fecha: 22 de Febrero del 2026
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GestorAutoMarket.Entidades;
 
 namespace GestorAutoMarket.LogicaNegocios

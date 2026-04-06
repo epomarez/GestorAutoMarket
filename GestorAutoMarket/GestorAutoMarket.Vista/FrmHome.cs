@@ -35,7 +35,8 @@ namespace GestorAutoMarket.Vista
         // y abre el formulario correspondiente según el TabPage seleccionado
         private void btnAniadirElemento_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 var selectedTab = tCMenu.SelectedTab;
                 if (selectedTab == null) return;
 
@@ -74,18 +75,20 @@ namespace GestorAutoMarket.Vista
                         break;
                 }
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al abrir el formulario: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         // Este método carga el DataSource en el GridView según el TabPage seleccionado
         private void cargarGridView()
         {
-            try {
+            try
+            {
                 var selectedTab = tCMenu.SelectedTab;
                 if (selectedTab == null) return;
                 dgvInfoArreglos.DataSource = null;
@@ -116,22 +119,23 @@ namespace GestorAutoMarket.Vista
                         ConfigurarColumnasVendedores();
                         break;
                     case "SucursalXVehiculo":
-                        dgvInfoArreglos.DataSource = 
+                        dgvInfoArreglos.DataSource =
                             VehiculoXSucursalLN.getVehiculosSucursal();
                         ConfigurarColumnasSucursalXVehiculo();
                         break;
 
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los datos en el grid: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         // Estos métodos permiten configurar
         // las columnas para el gridview según el TabPage seleccionado
-        private  void ConfigurarColumnasCategorias()
+        private void ConfigurarColumnasCategorias()
         {
             dgvInfoArreglos.Columns.Add(new DataGridViewTextBoxColumn
             {

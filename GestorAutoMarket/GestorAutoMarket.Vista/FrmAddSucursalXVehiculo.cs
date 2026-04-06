@@ -8,15 +8,6 @@
  */
 using GestorAutoMarket.Entidades;
 using GestorAutoMarket.LogicaNegocios;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestorAutoMarket.Vista
 {
@@ -34,7 +25,8 @@ namespace GestorAutoMarket.Vista
 
         }
 
-        private void CargarSucursalesEnComboBox() {
+        private void CargarSucursalesEnComboBox()
+        {
             try
             {
                 Sucursal[] sucursales = SucursalLN.getSucursales();
@@ -68,7 +60,8 @@ namespace GestorAutoMarket.Vista
             }
         }
 
-        private void CargarVehiculosEnComboBox() {
+        private void CargarVehiculosEnComboBox()
+        {
             try
             {
                 Vehiculo[] vehiculos = VehiculoLN.getVehiculos();
@@ -104,13 +97,15 @@ namespace GestorAutoMarket.Vista
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            try{
+            try
+            {
                 if (comBxSucursal.SelectedItem == null || comBxVehiculo.SelectedItem == null)
                 {
                     MessageBox.Show("Debe seleccionar una sucursal y un vehículo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else {
+                else
+                {
                     Sucursal sucursalSeleccionada = (Sucursal)comBxSucursal.SelectedItem;
                     Vehiculo vehiculoSeleccionado = (Vehiculo)comBxVehiculo.SelectedItem;
                     int cantidad = (int)nUDCantidad.Value;
@@ -125,10 +120,11 @@ namespace GestorAutoMarket.Vista
                     VehiculoXSucursalLN.addVehiculoXSucursal(
                         new VehiculoXSucursal(sucursalSeleccionada, vehiculoSeleccionado, cantidad));
                 }
-    
+
                 Limpiarcampos();
             }
-            catch(Exception ex){
+            catch (Exception ex)
+            {
                 MessageBox.Show("Error al registrar SucursalXVehiculo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 

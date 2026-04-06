@@ -6,13 +6,8 @@
     Estudiante: Edrey Pomarez.
     Fecha: 22 de Febrero del 2026
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using GestorAutoMarket.Entidades;
-using GestorAutoMarket.AccesoDatos;
 
 namespace GestorAutoMarket.LogicaNegocios
 {
@@ -25,7 +20,7 @@ namespace GestorAutoMarket.LogicaNegocios
             {
                 if (vendedor == null) return false;
                 cantidadVendedores++;
-                return AccesoDatos.DataAccess.Add(Entidades.TipoEntidad.Vendedor,vendedor);
+                return AccesoDatos.DataAccess.Add(Entidades.TipoEntidad.Vendedor, vendedor);
             }
             catch (Exception ex)
             {

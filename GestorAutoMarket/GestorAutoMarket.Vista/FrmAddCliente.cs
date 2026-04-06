@@ -10,14 +10,7 @@ using System.Collections.Generic;
     Estudiante: Edrey Pomarez.
     Fecha: 22 de Febrero del 2026
  */
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+
 
 namespace GestorAutoMarket.Vista
 {
@@ -30,7 +23,8 @@ namespace GestorAutoMarket.Vista
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            try{
+            try
+            {
                 string nombreCliente = txtBxNombre.Text.Trim();
                 string identificacionCliente = txtBxIdentificacion.Text.Trim();
                 DateTime fechaNacimientoCliente = dtpFechaNacimiento.Value;
@@ -72,10 +66,11 @@ namespace GestorAutoMarket.Vista
                 MessageBox.Show("Cliente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
             }
-            catch(Exception ex){
+            catch (Exception ex)
+            {
                 MessageBox.Show("Error al registrar cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
 
         }
 

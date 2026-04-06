@@ -6,15 +6,6 @@
     Estudiante: Edrey Pomarez.
     Fecha: 22 de Febrero del 2026
  */
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using GestorAutoMarket.Entidades;
 using GestorAutoMarket.LogicaNegocios;
 
@@ -29,7 +20,8 @@ namespace GestorAutoMarket.Vista
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 string nombreVendedor = txtBxNombre.Text.Trim();
                 string identificacionVendedor = txtBxIdentificacion.Text.Trim();
                 DateTime fechaNacimientoVendedor = dtpFechaNacimiento.Value;
@@ -82,11 +74,13 @@ namespace GestorAutoMarket.Vista
                 VendedorLN.addVendedor(vendedor);
                 MessageBox.Show("Vendedor registrado exitosamente.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
-            } catch (Exception ex) { 
-                MessageBox.Show("Error al registrar el vendedor: " + ex.Message, 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar el vendedor: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
 
         }
 

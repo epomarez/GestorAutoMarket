@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GestorAutoMarket.Entidades;
+﻿using GestorAutoMarket.Entidades;
 
 /*
     UNED I Cuatrimestre.
@@ -46,7 +41,7 @@ namespace GestorAutoMarket.AccesoDatos
                 case TipoEntidad.Sucursal: return InternalAdd(sucursals, entidad);
                 case TipoEntidad.Cliente: return InternalAdd(clientes, entidad);
                 case TipoEntidad.VehiculoXSucursal: return InternalAdd(vehiculoXSucursals, entidad);
-                default : return false;
+                default: return false;
             }
         }
 
@@ -74,7 +69,7 @@ namespace GestorAutoMarket.AccesoDatos
                 case TipoEntidad.Sucursal: return sucursals;
                 case TipoEntidad.Cliente: return clientes;
                 case TipoEntidad.VehiculoXSucursal: return vehiculoXSucursals;
-                default : return null;
+                default: return null;
             }
         }
     }

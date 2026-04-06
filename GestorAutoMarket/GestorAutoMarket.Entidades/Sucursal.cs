@@ -23,24 +23,29 @@ namespace GestorAutoMarket.Entidades
 
         public bool esActiva { get; private set; }
 
-        public int encargadoID {
-            get {return encargado != null ? encargado.id : 0;}
+        public int encargadoID
+        {
+            get { return encargado != null ? encargado.id : 0; }
         }
 
-        public string encargadoNombre {
-            get {return encargado != null ? encargado.nombreCompleto : string.Empty;}
+        public string encargadoNombre
+        {
+            get { return encargado != null ? encargado.nombreCompleto : string.Empty; }
         }
 
-        public DateTime fechaNacimientoEncargado {
-            get {return encargado != null ? encargado.fechaNacimiento : DateTime.MinValue;}
+        public DateTime fechaNacimientoEncargado
+        {
+            get { return encargado != null ? encargado.fechaNacimiento : DateTime.MinValue; }
         }
 
-        public DateTime fechaIngresoENcargado {
-            get {return encargado != null ? encargado.fechaIngreso : DateTime.MinValue;}
+        public DateTime fechaIngresoENcargado
+        {
+            get { return encargado != null ? encargado.fechaIngreso : DateTime.MinValue; }
         }
 
-        public string telefonoEncargado {
-            get {return encargado != null ? encargado.telefono : string.Empty;}
+        public string telefonoEncargado
+        {
+            get { return encargado != null ? encargado.telefono : string.Empty; }
         }
 
         public Sucursal(int idSucursal, string nombreSucursal, string direccion, string telefono, Vendedor encargado, bool esActiva)

@@ -23,8 +23,10 @@ namespace GestorAutoMarket.Vista
             CargarVendedoresEnCombobox();
         }
 
-        private void CargarVendedoresEnCombobox() {
-            try {
+        private void CargarVendedoresEnCombobox()
+        {
+            try
+            {
                 Vendedor[] todosLosVendedores = VendedorLN.getVendedores();
 
                 // Contar cuántos vendedores reales hay
@@ -51,7 +53,8 @@ namespace GestorAutoMarket.Vista
                 comBxEncargado.DisplayMember = "NombreCompleto";
                 comBxEncargado.ValueMember = "Id";
 
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar vendedores: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

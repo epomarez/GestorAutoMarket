@@ -18,7 +18,7 @@ namespace GestorAutoMarket.Entidades
         public decimal precio { get; private set; }
         private CategoriaVehiculo categoria { get; set; }
 
-        public int categoriaId 
+        public int categoriaId
         {
             get { return categoria != null ? categoria.idCategoria : 0; }
         }
@@ -35,7 +35,7 @@ namespace GestorAutoMarket.Entidades
 
         public char estado { get; private set; }
 
-        public string estadoTexto => estado == 'N' ? "Nuevo" :"Usado";
+        public string estadoTexto => estado == 'N' ? "Nuevo" : "Usado";
 
         public Vehiculo(int idVehiculo, string marca, string modelo, int anio, decimal precio, CategoriaVehiculo categoria, char estado)
         {

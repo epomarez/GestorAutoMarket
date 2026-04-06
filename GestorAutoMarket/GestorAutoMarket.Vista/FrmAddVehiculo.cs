@@ -8,17 +8,6 @@
  */
 using GestorAutoMarket.Entidades;
 using GestorAutoMarket.LogicaNegocios;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestorAutoMarket.Vista
 {
@@ -38,7 +27,8 @@ namespace GestorAutoMarket.Vista
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
 
-            try {
+            try
+            {
                 string marca = txtBxMarca.Text.Trim();
                 string modelo = txtBxModelo.Text.Trim();
                 int anio = (int)nUDAnio.Value;
@@ -89,7 +79,7 @@ namespace GestorAutoMarket.Vista
                 //Validacion de estado con Radio Buttons
                 CategoriaVehiculo categoriaSeleccionada;
                 categoriaSeleccionada = (CategoriaVehiculo)comBxCategorias.SelectedItem;
-            
+
 
                 char estado;
                 if (rBtnNuevo.Checked)
@@ -115,7 +105,9 @@ namespace GestorAutoMarket.Vista
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 LimpiarCampos();
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("Ocurrió un error al agregar el vehículo: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -136,7 +128,8 @@ namespace GestorAutoMarket.Vista
         }
         private void CargarCategoriasEnComboBox()
         {
-            try {
+            try
+            {
                 CategoriaVehiculo[] categorias = CategoriaVehiculoLN.getCategoriasVehiculo();
                 int count = 0;
                 for (int i = 0; i < categorias.Length; i++)

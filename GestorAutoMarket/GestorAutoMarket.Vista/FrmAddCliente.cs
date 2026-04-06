@@ -70,14 +70,21 @@ namespace GestorAutoMarket.Vista
                 Cliente cliente = new Cliente(ClienteLN.cantidadClientes, identificacionCliente, nombreCliente, fechaNacimientoCliente, DateTime.Today);
                 ClienteLN.addCliente(cliente);
                 MessageBox.Show("Cliente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtBxIdentificacion.Clear();
-                txtBxNombre.Clear();
-                dtpFechaNacimiento.Value = DateTime.Today;
-            }catch(Exception ex){
+                LimpiarCampos();
+            }
+            catch(Exception ex){
                 MessageBox.Show("Error al registrar cliente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
 
+        }
+
+        private void LimpiarCampos()
+        {
+            txtBxIdentificacion.Clear();
+            txtBxNombre.Clear();
+            dtpFechaNacimiento.Value = DateTime.Today;
+            txtBxIdentificacion.Focus();
         }
     }
 }

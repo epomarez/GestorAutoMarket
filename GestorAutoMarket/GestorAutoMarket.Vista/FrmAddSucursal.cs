@@ -24,9 +24,30 @@ namespace GestorAutoMarket.Vista
         }
 
         private void CargarVendedoresEnCombobox() {
-            try { 
-                
-                comBxEncargado.DataSource = VendedorLN.getVendedores();
+            try {
+                Vendedor[] todosLosVendedores = VendedorLN.getVendedores();
+
+                // Contar cuántos vendedores reales hay
+                int count = 0;
+                for (int i = 0; i < todosLosVendedores.Length; i++)
+                {
+                    if (todosLosVendedores[i] != null)
+                        count++;
+                }
+
+                // Crear un nuevo arreglo solo con los vendedores válidos
+                Vendedor[] vendedoresValidos = new Vendedor[count];
+                int index = 0;
+                for (int i = 0; i < todosLosVendedores.Length; i++)
+                {
+                    if (todosLosVendedores[i] != null)
+                    {
+                        vendedoresValidos[index] = todosLosVendedores[i];
+                        index++;
+                    }
+                }
+
+                comBxEncargado.DataSource = vendedoresValidos;
                 comBxEncargado.DisplayMember = "NombreCompleto";
                 comBxEncargado.ValueMember = "Id";
 

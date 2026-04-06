@@ -31,31 +31,7 @@ namespace GestorAutoMarket.Vista
 
         private void FrmAddVehiculo_Load(object sender, EventArgs e)
         {
-            CategoriaVehiculo[] categorias = CategoriaVehiculoLN.getCategoriasVehiculo();
-            int count = 0;
-            for (int i = 0; i < categorias.Length; i++)
-            {
-                if (categorias[i] != null)
-                {
-                    count++;
-                }
-            }
-
-            // Crear arreglo temporal con solo las categorías válidas
-            CategoriaVehiculo[] categoriasValidas = new CategoriaVehiculo[count];
-            int index = 0;
-            for (int i = 0; i < categorias.Length; i++)
-            {
-                if (categorias[i] != null)
-                {
-                    categoriasValidas[index++] = categorias[i];
-                }
-            }
-
-            // Asignar al ComboBox
-            comBxCategorias.DataSource = categoriasValidas;
-            comBxCategorias.DisplayMember = "NombreCategoria";
-            comBxCategorias.ValueMember = "IdCategoria";
+            CargarCategoriasEnComboBox();
 
         }
 
@@ -110,7 +86,7 @@ namespace GestorAutoMarket.Vista
 
 
 
-
+                //Validacion de estado con Radio Buttons
                 CategoriaVehiculo categoriaSeleccionada;
                 categoriaSeleccionada = (CategoriaVehiculo)comBxCategorias.SelectedItem;
             
@@ -126,7 +102,7 @@ namespace GestorAutoMarket.Vista
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, seleccione un estado válido.", "Error",
+                    MessageBox.Show("Debe seleccionar si el vehículo es Nuevo o Usado.", "Validación",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -135,19 +111,61 @@ namespace GestorAutoMarket.Vista
                     new Vehiculo(VehiculoLN.cantidadVehiculos, marca, modelo, anio,
                     precio, categoriaSeleccionada, estado));
 
-                txtBxMarca.Clear();
-                txtBxModelo.Clear();
-                nUDAnio.Value = nUDAnio.Minimum;
-                nUDPrecio.Value = nUDPrecio.Minimum;
-                comBxCategorias.SelectedIndex = -1;
-                rBtnNuevo.Checked = false;
-                rBtnUsado.Checked = false;
+                MessageBox.Show("Vehículo agregado exitosamente.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LimpiarCampos();
             } catch (Exception ex) {
                 MessageBox.Show("Ocurrió un error al agregar el vehículo: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
+        }
+
+        private void LimpiarCampos()
+        {
+            txtBxMarca.Clear();
+            txtBxModelo.Clear();
+            nUDAnio.Value = nUDAnio.Minimum;
+            nUDPrecio.Value = nUDPrecio.Minimum;
+            comBxCategorias.SelectedIndex = -1;
+            rBtnNuevo.Checked = false;
+            rBtnUsado.Checked = false;
+            txtBxMarca.Focus();
+        }
+        private void CargarCategoriasEnComboBox()
+        {
+            try {
+                CategoriaVehiculo[] categorias = CategoriaVehiculoLN.getCategoriasVehiculo();
+                int count = 0;
+                for (int i = 0; i < categorias.Length; i++)
+                {
+                    if (categorias[i] != null)
+                    {
+                        count++;
+                    }
+                }
+                // Crear arreglo temporal con solo las categorías válidas
+                CategoriaVehiculo[] categoriasValidas = new CategoriaVehiculo[count];
+                int index = 0;
+                for (int i = 0; i < categorias.Length; i++)
+                {
+                    if (categorias[i] != null)
+                    {
+                        categoriasValidas[index++] = categorias[i];
+                    }
+                }
+                // Asignar al ComboBox
+                comBxCategorias.DataSource = categoriasValidas;
+                comBxCategorias.DisplayMember = "NombreCategoria";
+                comBxCategorias.ValueMember = "IdCategoria";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar las categorías: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -35,78 +35,92 @@ namespace GestorAutoMarket.Vista
         // y abre el formulario correspondiente según el TabPage seleccionado
         private void btnAniadirElemento_Click(object sender, EventArgs e)
         {
-            var selectedTab = tCMenu.SelectedTab;
-            if (selectedTab == null) return;
+            try {
+                var selectedTab = tCMenu.SelectedTab;
+                if (selectedTab == null) return;
 
-            switch (selectedTab.Text) { 
-                case "Categorías de Vehículo":
-                    FrmAddCategoriaVehiculo frmAddCategoriaVehiculo = new FrmAddCategoriaVehiculo();
-                    frmAddCategoriaVehiculo.ShowDialog();
-                    cargarGridView();
-                    break;
-                case "Clientes":
-                    FrmAddCliente frmAddCliente = new FrmAddCliente();
-                    frmAddCliente.ShowDialog();
-                    cargarGridView();
-                    break;
-                case "Vehiculos":
-                    FrmAddVehiculo frmAddVehiculo = new FrmAddVehiculo();
-                    frmAddVehiculo.ShowDialog();
-                    cargarGridView();
-                    break;
-                case "Vendedores":
-                    FrmVendedor frmAddVendedor = new FrmVendedor();
-                    frmAddVendedor.ShowDialog();
-                    cargarGridView();
-                    break;
-                case "Sucursales":
-                    FrmAddSucursal frmAddSucursal = new FrmAddSucursal();
-                    frmAddSucursal.ShowDialog();
-                    cargarGridView();
-                    break;
-                case "SucursalXVehiculo":
-                    FrmAddSucursalXVehiculo frmAddSucursalXVehiculo =
-                    new FrmAddSucursalXVehiculo();
-                    frmAddSucursalXVehiculo.ShowDialog();
-                    cargarGridView();
-                    break;
+                switch (selectedTab.Text)
+                {
+                    case "Categorías de Vehículo":
+                        FrmAddCategoriaVehiculo frmAddCategoriaVehiculo = new FrmAddCategoriaVehiculo();
+                        frmAddCategoriaVehiculo.ShowDialog();
+                        cargarGridView();
+                        break;
+                    case "Clientes":
+                        FrmAddCliente frmAddCliente = new FrmAddCliente();
+                        frmAddCliente.ShowDialog();
+                        cargarGridView();
+                        break;
+                    case "Vehiculos":
+                        FrmAddVehiculo frmAddVehiculo = new FrmAddVehiculo();
+                        frmAddVehiculo.ShowDialog();
+                        cargarGridView();
+                        break;
+                    case "Vendedores":
+                        FrmVendedor frmAddVendedor = new FrmVendedor();
+                        frmAddVendedor.ShowDialog();
+                        cargarGridView();
+                        break;
+                    case "Sucursales":
+                        FrmAddSucursal frmAddSucursal = new FrmAddSucursal();
+                        frmAddSucursal.ShowDialog();
+                        cargarGridView();
+                        break;
+                    case "SucursalXVehiculo":
+                        FrmAddSucursalXVehiculo frmAddSucursalXVehiculo =
+                        new FrmAddSucursalXVehiculo();
+                        frmAddSucursalXVehiculo.ShowDialog();
+                        cargarGridView();
+                        break;
+                }
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir el formulario: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         // Este método carga el DataSource en el GridView según el TabPage seleccionado
         private void cargarGridView()
         {
-            var selectedTab = tCMenu.SelectedTab;
-            if (selectedTab == null) return;
-            dgvInfoArreglos.DataSource = null;
-            dgvInfoArreglos.AutoGenerateColumns = false;
-            dgvInfoArreglos.Columns.Clear();
+            try {
+                var selectedTab = tCMenu.SelectedTab;
+                if (selectedTab == null) return;
+                dgvInfoArreglos.DataSource = null;
+                dgvInfoArreglos.AutoGenerateColumns = false;
+                dgvInfoArreglos.Columns.Clear();
 
-            switch (selectedTab.Text)
+                switch (selectedTab.Text)
+                {
+                    case "Categorías de Vehículo":
+                        dgvInfoArreglos.DataSource = CategoriaVehiculoLN.getCategoriasVehiculo();
+                        ConfigurarColumnasCategorias();
+                        break;
+                    case "Vehiculos":
+                        dgvInfoArreglos.DataSource = VehiculoLN.getVehiculos();
+                        ConfigurarColumnasVehiculos();
+                        break;
+                    case "Clientes":
+                        dgvInfoArreglos.DataSource = ClienteLN.getClientes();
+                        ConfigurarColumnasClientes();
+
+                        break;
+                    case "Sucursales":
+                        dgvInfoArreglos.DataSource = SucursalLN.getSucursales();
+                        ConfigurarColumnasSucursales();
+                        break;
+                    case "Vendedores":
+                        dgvInfoArreglos.DataSource = VendedorLN.getVendedores();
+                        ConfigurarColumnasVendedores();
+                        break;
+
+                }
+            } catch (Exception ex)
             {
-                case "Categorías de Vehículo":
-                    dgvInfoArreglos.DataSource = CategoriaVehiculoLN.getCategoriasVehiculo();
-                    ConfigurarColumnasCategorias();
-                    break;
-                case "Vehiculos":
-                    dgvInfoArreglos.DataSource = VehiculoLN.getVehiculos();
-                    ConfigurarColumnasVehiculos();
-                    break;
-                case "Clientes":
-                    dgvInfoArreglos.DataSource = ClienteLN.getClientes();
-                    ConfigurarColumnasClientes();
-
-                    break;
-                case "Sucursales":
-                    dgvInfoArreglos.DataSource = SucursalLN.getSucursales();
-                    ConfigurarColumnasSucursales();
-                    break;
-                case "Vendedores":
-                    dgvInfoArreglos.DataSource = VendedorLN.getVendedores();
-                    ConfigurarColumnasVendedores();
-
-                    break;
-
+                MessageBox.Show("Error al cargar los datos en el grid: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         

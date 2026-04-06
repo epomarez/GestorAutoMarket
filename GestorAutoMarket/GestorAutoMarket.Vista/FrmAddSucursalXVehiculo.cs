@@ -29,50 +29,77 @@ namespace GestorAutoMarket.Vista
 
         private void FrmAddSucursalXVehiculo_Load(object sender, EventArgs e)
         {
-            Sucursal[] sucursales = SucursalLN.getSucursales();
-            int count = 0;
-            for (int i = 0; i < sucursales.Length; i++)
+            CargarSucursalesEnComboBox();
+            CargarVehiculosEnComboBox();
+
+        }
+
+        private void CargarSucursalesEnComboBox() {
+            try
             {
-                if (sucursales[i] != null)
-                {
-                    count++;
-                }
-            }
+                Sucursal[] sucursales = SucursalLN.getSucursales();
 
-            Sucursal[] sucursalesValidas = new Sucursal[count];
-            int index = 0;
-            for (int i = 0; i < sucursales.Length; i++)
+                int count = 0;
+                for (int i = 0; i < sucursales.Length; i++)
+                {
+                    if (sucursales[i] != null)
+                        count++;
+                }
+
+                Sucursal[] sucursalesValidas = new Sucursal[count];
+                int index = 0;
+
+                for (int i = 0; i < sucursales.Length; i++)
+                {
+                    if (sucursales[i] != null)
+                    {
+                        sucursalesValidas[index++] = sucursales[i];
+                    }
+                }
+
+                comBxSucursal.DataSource = sucursalesValidas;
+                comBxSucursal.DisplayMember = "NombreSucursal";   // ← Muestra el nombre de la sucursal
+                comBxSucursal.ValueMember = "IdSucursal";
+            }
+            catch (Exception ex)
             {
-                if (sucursales[i] != null)
-                {
-                    sucursalesValidas[index++] = sucursales[i];
-                }
+                MessageBox.Show("Error al cargar sucursales: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            comBxSucursal.DataSource = sucursalesValidas;
+        }
 
-            Vehiculo[] vehiculos = VehiculoLN.getVehiculos();
-            int countVehiculos = 0;
-            for (int i = 0; i < vehiculos.Length; i++)
+        private void CargarVehiculosEnComboBox() {
+            try
             {
-                if (vehiculos[i] != null)
-                {
-                    countVehiculos++;
-                }
-            }
+                Vehiculo[] vehiculos = VehiculoLN.getVehiculos();
 
-            Vehiculo[] vehiculosValidos = new Vehiculo[countVehiculos];
-            int indexVehiculo = 0;
-            for (int i = 0; i < vehiculos.Length; i++)
+                int count = 0;
+                for (int i = 0; i < vehiculos.Length; i++)
+                {
+                    if (vehiculos[i] != null)
+                        count++;
+                }
+
+                Vehiculo[] vehiculosValidos = new Vehiculo[count];
+                int index = 0;
+
+                for (int i = 0; i < vehiculos.Length; i++)
+                {
+                    if (vehiculos[i] != null)
+                    {
+                        vehiculosValidos[index++] = vehiculos[i];
+                    }
+                }
+
+                comBxVehiculo.DataSource = vehiculosValidos;
+                comBxVehiculo.DisplayMember = "Marca";           // ← Muestra la marca (puedes mejorar esto)
+                comBxVehiculo.ValueMember = "IdVehiculo";
+            }
+            catch (Exception ex)
             {
-                if (vehiculos[i] != null)
-                {
-                    vehiculosValidos[indexVehiculo++] = vehiculos[i];
-                }
+                MessageBox.Show("Error al cargar vehículos: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            comBxVehiculo.DataSource = vehiculosValidos;
-
-
-
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)

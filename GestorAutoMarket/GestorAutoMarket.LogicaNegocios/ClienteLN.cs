@@ -14,8 +14,9 @@ namespace GestorAutoMarket.LogicaNegocios
     public class ClienteLN
     {
 
-        public static int cantidadClientes = 0;
-        public static bool addCliente(Cliente cliente)
+        private static int cantidadClientes = 0;
+        public static int CantidadClientes => cantidadClientes;
+        public static bool AddCliente(Cliente cliente)
         {
             try
             {
@@ -29,7 +30,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public static Cliente[] getClientes()
+        public static Cliente[] GetClientes()
         {
             try
             {

@@ -27,7 +27,7 @@ namespace GestorAutoMarket.Vista
         {
             try
             {
-                Vendedor[] todosLosVendedores = VendedorLN.getVendedores();
+                Vendedor[] todosLosVendedores = VendedorLN.GetVendedores();
 
                 // Contar cuántos vendedores reales hay
                 int count = 0;
@@ -109,7 +109,7 @@ namespace GestorAutoMarket.Vista
                 bool disponible = chkBxDisponible.Checked;
                 Sucursal nuevaSucursal = new Sucursal(SucursalLN.cantidadSucursales, nombre,
                     direccion, telefono, vendedorSeleccionado, disponible);
-                SucursalLN.addSucursal(nuevaSucursal);
+                SucursalLN.AddSucursal(nuevaSucursal);
 
                 LimpiarCampos();
             }

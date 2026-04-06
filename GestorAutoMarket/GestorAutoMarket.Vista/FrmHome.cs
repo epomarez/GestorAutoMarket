@@ -98,29 +98,29 @@ namespace GestorAutoMarket.Vista
                 switch (selectedTab.Text)
                 {
                     case "Categorías de Vehículo":
-                        dgvInfoArreglos.DataSource = CategoriaVehiculoLN.getCategoriasVehiculo();
+                        dgvInfoArreglos.DataSource = CategoriaVehiculoLN.GetCategoriasVehiculo();
                         ConfigurarColumnasCategorias();
                         break;
                     case "Vehiculos":
-                        dgvInfoArreglos.DataSource = VehiculoLN.getVehiculos();
+                        dgvInfoArreglos.DataSource = VehiculoLN.GetVehiculos();
                         ConfigurarColumnasVehiculos();
                         break;
                     case "Clientes":
-                        dgvInfoArreglos.DataSource = ClienteLN.getClientes();
+                        dgvInfoArreglos.DataSource = ClienteLN.GetClientes();
                         ConfigurarColumnasClientes();
 
                         break;
                     case "Sucursales":
-                        dgvInfoArreglos.DataSource = SucursalLN.getSucursales();
+                        dgvInfoArreglos.DataSource = SucursalLN.GetSucursales();
                         ConfigurarColumnasSucursales();
                         break;
                     case "Vendedores":
-                        dgvInfoArreglos.DataSource = VendedorLN.getVendedores();
+                        dgvInfoArreglos.DataSource = VendedorLN.GetVendedores();
                         ConfigurarColumnasVendedores();
                         break;
                     case "SucursalXVehiculo":
                         dgvInfoArreglos.DataSource =
-                            VehiculoXSucursalLN.getVehiculosSucursal();
+                            VehiculoXSucursalLN.GetVehiculosSucursal();
                         ConfigurarColumnasSucursalXVehiculo();
                         break;
 

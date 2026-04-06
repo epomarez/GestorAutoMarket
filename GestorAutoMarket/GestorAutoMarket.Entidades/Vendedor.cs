@@ -11,15 +11,15 @@ namespace GestorAutoMarket.Entidades
 {
     public class Vendedor : Persona
     {
-        public DateTime fechaIngreso { get; private set; }
+        public DateTime FechaIngreso { get; private set; }
 
-        public string telefono { get; private set; }
+        public string Telefono { get; private set; }
 
         public Vendedor(int id, string identificacion, string nombreCompleto,
             DateTime fechaNacimiento, DateTime fechaIngreso, string telefono) : base(id, identificacion, nombreCompleto, fechaNacimiento)
         {
-            this.fechaIngreso = fechaIngreso;
-            this.telefono = telefono;
+            this.FechaIngreso = fechaIngreso;
+            this.Telefono = telefono;
         }
     }
 }

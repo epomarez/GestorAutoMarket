@@ -52,7 +52,7 @@ namespace GestorAutoMarket.Vista
 
                 CategoriaVehiculo categoriaVehiculo = new CategoriaVehiculo(CategoriaVehiculoLN.cantidadCategorias,
                     nombreCategoria, descripcionCategoria);
-                CategoriaVehiculoLN.addCategoriaVehiculo(categoriaVehiculo);
+                CategoriaVehiculoLN.AddCategoriaVehiculo(categoriaVehiculo);
                 MessageBox.Show("Categoría de vehículo agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
             }

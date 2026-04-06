@@ -71,7 +71,7 @@ namespace GestorAutoMarket.Vista
 
                 Vendedor vendedor = new Vendedor(VendedorLN.cantidadVendedores,
                     identificacionVendedor, nombreVendedor, fechaNacimientoVendedor, DateTime.Today, telefono);
-                VendedorLN.addVendedor(vendedor);
+                VendedorLN.AddVendedor(vendedor);
                 MessageBox.Show("Vendedor registrado exitosamente.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
             }

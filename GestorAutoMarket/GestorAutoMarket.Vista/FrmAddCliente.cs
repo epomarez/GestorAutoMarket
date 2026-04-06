@@ -62,7 +62,7 @@ namespace GestorAutoMarket.Vista
                 }
 
                 Cliente cliente = new Cliente(ClienteLN.cantidadClientes, identificacionCliente, nombreCliente, fechaNacimientoCliente, DateTime.Today);
-                ClienteLN.addCliente(cliente);
+                ClienteLN.AddCliente(cliente);
                 MessageBox.Show("Cliente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
             }

@@ -29,7 +29,7 @@ namespace GestorAutoMarket.Vista
         {
             try
             {
-                Sucursal[] sucursales = SucursalLN.getSucursales();
+                Sucursal[] sucursales = SucursalLN.GetSucursales();
 
                 int count = 0;
                 for (int i = 0; i < sucursales.Length; i++)
@@ -64,7 +64,7 @@ namespace GestorAutoMarket.Vista
         {
             try
             {
-                Vehiculo[] vehiculos = VehiculoLN.getVehiculos();
+                Vehiculo[] vehiculos = VehiculoLN.GetVehiculos();
 
                 int count = 0;
                 for (int i = 0; i < vehiculos.Length; i++)
@@ -117,7 +117,7 @@ namespace GestorAutoMarket.Vista
                         return;
                     }
 
-                    VehiculoXSucursalLN.addVehiculoXSucursal(
+                    VehiculoXSucursalLN.AddVehiculoXSucursal(
                         new VehiculoXSucursal(sucursalSeleccionada, vehiculoSeleccionado, cantidad));
                 }
 

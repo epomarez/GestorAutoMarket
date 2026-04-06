@@ -13,8 +13,9 @@ namespace GestorAutoMarket.LogicaNegocios
 {
     public class VendedorLN
     {
-        public static int cantidadVendedores = 0;
-        public static bool addVendedor(Vendedor vendedor)
+        private static int cantidadVendedores = 0;
+        public static int CantidadVendedores => cantidadVendedores;
+        public static bool AddVendedor(Vendedor vendedor)
         {
             try
             {
@@ -29,7 +30,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public static Vendedor[] getVendedores()
+        public static Vendedor[] GetVendedores()
         {
             try
             {

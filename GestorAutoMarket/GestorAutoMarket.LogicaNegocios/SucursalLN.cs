@@ -14,8 +14,11 @@ namespace GestorAutoMarket.LogicaNegocios
 {
     public class SucursalLN
     {
-        public static int cantidadSucursales = 0;
-        public static bool addSucursal(Sucursal sucursal)
+        private static int cantidadSucursales = 0;
+
+        public static int CantidadSucursales => cantidadSucursales;
+
+        public static bool AddSucursal(Sucursal sucursal)
         {
             try
             {
@@ -29,7 +32,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public static Sucursal[] getSucursales()
+        public static Sucursal[] GetSucursales()
         {
             try
             {

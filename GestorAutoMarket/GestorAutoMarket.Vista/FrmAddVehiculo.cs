@@ -97,7 +97,7 @@ namespace GestorAutoMarket.Vista
                     return;
                 }
 
-                VehiculoLN.addVehiculo(
+                VehiculoLN.AddVehiculo(
                     new Vehiculo(VehiculoLN.cantidadVehiculos, marca, modelo, anio,
                     precio, categoriaSeleccionada, estado));
 
@@ -130,7 +130,7 @@ namespace GestorAutoMarket.Vista
         {
             try
             {
-                CategoriaVehiculo[] categorias = CategoriaVehiculoLN.getCategoriasVehiculo();
+                CategoriaVehiculo[] categorias = CategoriaVehiculoLN.GetCategoriasVehiculo();
                 int count = 0;
                 for (int i = 0; i < categorias.Length; i++)
                 {

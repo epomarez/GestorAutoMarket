@@ -6,10 +6,7 @@
     Estudiante: Edrey Pomarez.
     Fecha: 22 de Febrero del 2026
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 using System.Threading.Tasks;
 using GestorAutoMarket.Entidades;
 
@@ -17,8 +14,11 @@ namespace GestorAutoMarket.LogicaNegocios
 {
     public class SucursalLN
     {
-        public static int cantidadSucursales = 0;
-        public static bool addSucursal(Sucursal sucursal)
+        private static int cantidadSucursales = 0;
+
+        public static int CantidadSucursales => cantidadSucursales;
+
+        public static bool AddSucursal(Sucursal sucursal)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public static Sucursal[] getSucursales()
+        public static Sucursal[] GetSucursales()
         {
             try
             {

@@ -105,11 +105,9 @@
             // 
             nUDTelefono.Location = new Point(295, 149);
             nUDTelefono.Maximum = new decimal(new int[] { 99999999, 0, 0, 0 });
-            nUDTelefono.Minimum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nUDTelefono.Name = "nUDTelefono";
             nUDTelefono.Size = new Size(182, 31);
             nUDTelefono.TabIndex = 7;
-            nUDTelefono.Value = new decimal(new int[] { 10000000, 0, 0, 0 });
             // 
             // comBxEncargado
             // 

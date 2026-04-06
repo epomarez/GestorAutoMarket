@@ -11,17 +11,17 @@ namespace GestorAutoMarket.Entidades
 {
     public class Persona
     {
-        public int id { get; private set; }
-        public string identificacion { get; private set; }
-        public string nombreCompleto { get; private set; }
-        public DateTime fechaNacimiento { get; private set; }
+        public int Id { get; private set; }
+        public string Identificacion { get; private set; }
+        public string NombreCompleto { get; private set; }
+        public DateTime FechaNacimiento { get; private set; }
 
         protected Persona(int id, string identificacion, string nombreCompleto, DateTime fechaNacimiento)
         {
-            this.id = id;
-            this.identificacion = identificacion;
-            this.nombreCompleto = nombreCompleto;
-            this.fechaNacimiento = fechaNacimiento;
+            this.Id = id;
+            this.Identificacion = identificacion;
+            this.NombreCompleto = nombreCompleto;
+            this.FechaNacimiento = fechaNacimiento;
         }
 
 

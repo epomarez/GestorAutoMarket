@@ -11,39 +11,38 @@ namespace GestorAutoMarket.Entidades
 {
     public class Vehiculo
     {
-        public int idVehiculo { get; private set; }
-        public string marca { get; private set; }
-        public string modelo { get; private set; }
-        public int anio { get; private set; }
-        public decimal precio { get; private set; }
-        private CategoriaVehiculo categoria { get; set; }
+        public int IdVehiculo { get; private set; }
+        public string Marca { get; private set; }
+        public string Modelo { get; private set; }
+        public int Anio { get; private set; }
+        public decimal Precio { get; private set; }
+        private CategoriaVehiculo Categoria { get; set; }
 
-        public int categoriaId 
+        public int CategoriaId => Categoria != null ? Categoria.IdCategoria : 0;
+
+        public string NombreCategoria
         {
-            get { return categoria != null ? categoria.idCategoria : 0; }
+            get { return Categoria != null ? Categoria.NombreCategoria : "Sin categoría"; }
         }
 
-        public string nombreCategoria
+        public string DescripcionCategoria
         {
-            get { return categoria != null ? categoria.nombreCategoria : "Sin categoría"; }
+            get { return Categoria != null ? Categoria.Descripcion : "Sin descripción"; }
         }
 
-        public string descripcionCategoria
-        {
-            get { return categoria != null ? categoria.descripcion : "Sin descripción"; }
-        }
+        public char Estado { get; private set; }
 
-        public char estado { get; private set; }
+        public string EstadoTexto => Estado == 'N' ? "Nuevo" : "Usado";
 
         public Vehiculo(int idVehiculo, string marca, string modelo, int anio, decimal precio, CategoriaVehiculo categoria, char estado)
         {
-            this.idVehiculo = idVehiculo;
-            this.marca = marca;
-            this.modelo = modelo;
-            this.anio = anio;
-            this.precio = precio;
-            this.categoria = categoria;
-            this.estado = estado;
+            this.IdVehiculo = idVehiculo;
+            this.Marca = marca;
+            this.Modelo = modelo;
+            this.Anio = anio;
+            this.Precio = precio;
+            this.Categoria = categoria;
+            this.Estado = estado;
         }
     }
 }

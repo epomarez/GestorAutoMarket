@@ -11,46 +11,36 @@ namespace GestorAutoMarket.Entidades
 {
     public class Sucursal
     {
-        public int idSucursal { get; private set; }
+        public int IdSucursal { get; private set; }
 
-        public string nombreSucursal { get; private set; }
+        public string NombreSucursal { get; private set; }
 
-        public string direccion { get; private set; }
+        public string Direccion { get; private set; }
 
-        public string telefono { get; private set; }
+        public string Telefono { get; private set; }
 
-        public Vendedor encargado { get; private set; }
+        public Vendedor Encargado { get; private set; }
 
-        public bool esActiva { get; private set; }
+        public bool EsActiva { get; private set; }
 
-        public int encargadoID {
-            get {return encargado != null ? encargado.id : 0;}
-        }
+        public int EncargadoID => Encargado != null ? Encargado.Id : 0;
 
-        public string encargadoNombre {
-            get {return encargado != null ? encargado.nombreCompleto : string.Empty;}
-        }
+        public string EncargadoNombre => Encargado != null ? Encargado.NombreCompleto : string.Empty;
 
-        public DateTime fechaNacimientoEncargado {
-            get {return encargado != null ? encargado.fechaNacimiento : DateTime.MinValue;}
-        }
+        public DateTime FechaNacimientoEncargado => Encargado != null ? Encargado.FechaNacimiento : DateTime.MinValue;
 
-        public DateTime fechaIngresoENcargado {
-            get {return encargado != null ? encargado.fechaIngreso : DateTime.MinValue;}
-        }
+        public DateTime FechaIngresoENcargado => Encargado != null ? Encargado.FechaIngreso : DateTime.MinValue;
 
-        public string telefonoEncargado {
-            get {return encargado != null ? encargado.telefono : string.Empty;}
-        }
+        public string TelefonoEncargado => Encargado != null ? Encargado.Telefono : string.Empty;
 
         public Sucursal(int idSucursal, string nombreSucursal, string direccion, string telefono, Vendedor encargado, bool esActiva)
         {
-            this.idSucursal = idSucursal;
-            this.nombreSucursal = nombreSucursal;
-            this.direccion = direccion;
-            this.telefono = telefono;
-            this.encargado = encargado;
-            this.esActiva = esActiva;
+            this.IdSucursal = idSucursal;
+            this.NombreSucursal = nombreSucursal;
+            this.Direccion = direccion;
+            this.Telefono = telefono;
+            this.Encargado = encargado;
+            this.EsActiva = esActiva;
         }
 
     }

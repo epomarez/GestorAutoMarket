@@ -6,11 +6,7 @@
     Estudiante: Edrey Pomarez.
     Fecha: 22 de Febrero del 2026
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using GestorAutoMarket.Entidades;
 
 namespace GestorAutoMarket.LogicaNegocios
@@ -18,8 +14,9 @@ namespace GestorAutoMarket.LogicaNegocios
     public class ClienteLN
     {
 
-        public static int cantidadClientes = 0;
-        public static bool addCliente(Cliente cliente)
+        private static int cantidadClientes = 0;
+        public static int CantidadClientes => cantidadClientes;
+        public static bool AddCliente(Cliente cliente)
         {
             try
             {
@@ -33,7 +30,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public static Cliente[] getClientes()
+        public static Cliente[] GetClientes()
         {
             try
             {

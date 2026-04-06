@@ -6,19 +6,16 @@
     Estudiante: Edrey Pomarez.
     Fecha: 22 de Febrero del 2026
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GestorAutoMarket.Entidades;
 
 namespace GestorAutoMarket.LogicaNegocios
 {
     public class VehiculoLN
     {
-        public static int cantidadVehiculos = 0;
-        public static bool addVehiculo(Vehiculo vehiculo)
+        private static int cantidadVehiculos = 0;
+
+        public static int CantidadVehiculos => cantidadVehiculos;
+        public static bool AddVehiculo(Vehiculo vehiculo)
         {
             try
             {
@@ -32,7 +29,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public static Vehiculo[] getVehiculos()
+        public static Vehiculo[] GetVehiculos()
         {
             try
             {

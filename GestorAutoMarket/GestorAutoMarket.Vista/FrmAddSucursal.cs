@@ -20,10 +20,45 @@ namespace GestorAutoMarket.Vista
 
         private void FrmAddSucursal_Load(object sender, EventArgs e)
         {
-            
+            CargarVendedoresEnCombobox();
+        }
 
+        private void CargarVendedoresEnCombobox()
+        {
+            try
+            {
+                Vendedor[] todosLosVendedores = VendedorLN.GetVendedores();
 
+                // Contar cuántos vendedores reales hay
+                int count = 0;
+                for (int i = 0; i < todosLosVendedores.Length; i++)
+                {
+                    if (todosLosVendedores[i] != null)
+                        count++;
+                }
 
+                // Crear un nuevo arreglo solo con los vendedores válidos
+                Vendedor[] vendedoresValidos = new Vendedor[count];
+                int index = 0;
+                for (int i = 0; i < todosLosVendedores.Length; i++)
+                {
+                    if (todosLosVendedores[i] != null)
+                    {
+                        vendedoresValidos[index] = todosLosVendedores[i];
+                        index++;
+                    }
+                }
+
+                comBxEncargado.DataSource = vendedoresValidos;
+                comBxEncargado.DisplayMember = "NombreCompleto";
+                comBxEncargado.ValueMember = "Id";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar vendedores: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
@@ -74,18 +109,24 @@ namespace GestorAutoMarket.Vista
                 bool disponible = chkBxDisponible.Checked;
                 Sucursal nuevaSucursal = new Sucursal(SucursalLN.cantidadSucursales, nombre,
                     direccion, telefono, vendedorSeleccionado, disponible);
-                SucursalLN.addSucursal(nuevaSucursal);
+                SucursalLN.AddSucursal(nuevaSucursal);
 
-                txtBxDireccion.Clear();
-                txtBxNombre.Clear();
-                nUDTelefono.Value = 0;
-                comBxEncargado.SelectedIndex = -1;
-                disponible = false;
+                LimpiarCampos();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al registrar sucursal: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al registrar sucursal: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void LimpiarCampos()
+        {
+            txtBxDireccion.Clear();
+            txtBxNombre.Clear();
+            nUDTelefono.Value = 0;
+            comBxEncargado.SelectedIndex = -1;
+            chkBxDisponible.Checked = false;
         }
     }
 }

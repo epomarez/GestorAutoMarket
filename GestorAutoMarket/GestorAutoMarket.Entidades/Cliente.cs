@@ -11,12 +11,12 @@ namespace GestorAutoMarket.Entidades
 {
     public class Cliente : Persona
     {
-        public DateTime fechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
         public Cliente(int id, string identificacion, string nombreCompleto,
             DateTime fechaNacimiento, DateTime fechaRegistro) : base(id, identificacion, nombreCompleto, fechaNacimiento)
         {
-            this.fechaRegistro = fechaRegistro;
+            this.FechaRegistro = fechaRegistro;
         }
     }
 }

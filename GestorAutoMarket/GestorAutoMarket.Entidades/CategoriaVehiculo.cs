@@ -11,16 +11,16 @@ namespace GestorAutoMarket.Entidades
 {
     public class CategoriaVehiculo
     {
-        public int idCategoria { get; set; }
-        public string nombreCategoria { get; set; }
+        public int IdCategoria { get; set; }
+        public string NombreCategoria { get; set; }
 
-        public string descripcion { get; set; }
+        public string Descripcion { get; set; }
 
         public CategoriaVehiculo(int idCategoria, string nombreCategoria, string descripcion)
         {
-            this.idCategoria = idCategoria;
-            this.nombreCategoria = nombreCategoria;
-            this.descripcion = descripcion;
+            this.IdCategoria = idCategoria;
+            this.NombreCategoria = nombreCategoria;
+            this.Descripcion = descripcion;
         }
     }
 }

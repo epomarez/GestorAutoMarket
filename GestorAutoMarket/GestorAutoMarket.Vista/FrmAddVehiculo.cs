@@ -8,17 +8,6 @@
  */
 using GestorAutoMarket.Entidades;
 using GestorAutoMarket.LogicaNegocios;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace GestorAutoMarket.Vista
 {
@@ -31,38 +20,15 @@ namespace GestorAutoMarket.Vista
 
         private void FrmAddVehiculo_Load(object sender, EventArgs e)
         {
-            CategoriaVehiculo[] categorias = CategoriaVehiculoLN.getCategoriasVehiculo();
-            int count = 0;
-            for (int i = 0; i < categorias.Length; i++)
-            {
-                if (categorias[i] != null)
-                {
-                    count++;
-                }
-            }
-
-            // Crear arreglo temporal con solo las categorías válidas
-            CategoriaVehiculo[] categoriasValidas = new CategoriaVehiculo[count];
-            int index = 0;
-            for (int i = 0; i < categorias.Length; i++)
-            {
-                if (categorias[i] != null)
-                {
-                    categoriasValidas[index++] = categorias[i];
-                }
-            }
-
-            // Asignar al ComboBox
-            comBxCategorias.DataSource = categoriasValidas;
-            comBxCategorias.DisplayMember = "NombreCategoria";
-            comBxCategorias.ValueMember = "IdCategoria";
+            CargarCategoriasEnComboBox();
 
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
 
-            try {
+            try
+            {
                 string marca = txtBxMarca.Text.Trim();
                 string modelo = txtBxModelo.Text.Trim();
                 int anio = (int)nUDAnio.Value;
@@ -110,10 +76,10 @@ namespace GestorAutoMarket.Vista
 
 
 
-
+                //Validacion de estado con Radio Buttons
                 CategoriaVehiculo categoriaSeleccionada;
                 categoriaSeleccionada = (CategoriaVehiculo)comBxCategorias.SelectedItem;
-            
+
 
                 char estado;
                 if (rBtnNuevo.Checked)
@@ -126,28 +92,73 @@ namespace GestorAutoMarket.Vista
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, seleccione un estado válido.", "Error",
+                    MessageBox.Show("Debe seleccionar si el vehículo es Nuevo o Usado.", "Validación",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                VehiculoLN.addVehiculo(
+                VehiculoLN.AddVehiculo(
                     new Vehiculo(VehiculoLN.cantidadVehiculos, marca, modelo, anio,
                     precio, categoriaSeleccionada, estado));
 
-                txtBxMarca.Clear();
-                txtBxModelo.Clear();
-                nUDAnio.Value = nUDAnio.Minimum;
-                nUDPrecio.Value = nUDPrecio.Minimum;
-                comBxCategorias.SelectedIndex = -1;
-                rBtnNuevo.Checked = false;
-                rBtnUsado.Checked = false;
-            } catch (Exception ex) {
+                MessageBox.Show("Vehículo agregado exitosamente.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LimpiarCampos();
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("Ocurrió un error al agregar el vehículo: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
+        }
+
+        private void LimpiarCampos()
+        {
+            txtBxMarca.Clear();
+            txtBxModelo.Clear();
+            nUDAnio.Value = nUDAnio.Minimum;
+            nUDPrecio.Value = nUDPrecio.Minimum;
+            comBxCategorias.SelectedIndex = -1;
+            rBtnNuevo.Checked = false;
+            rBtnUsado.Checked = false;
+            txtBxMarca.Focus();
+        }
+        private void CargarCategoriasEnComboBox()
+        {
+            try
+            {
+                CategoriaVehiculo[] categorias = CategoriaVehiculoLN.GetCategoriasVehiculo();
+                int count = 0;
+                for (int i = 0; i < categorias.Length; i++)
+                {
+                    if (categorias[i] != null)
+                    {
+                        count++;
+                    }
+                }
+                // Crear arreglo temporal con solo las categorías válidas
+                CategoriaVehiculo[] categoriasValidas = new CategoriaVehiculo[count];
+                int index = 0;
+                for (int i = 0; i < categorias.Length; i++)
+                {
+                    if (categorias[i] != null)
+                    {
+                        categoriasValidas[index++] = categorias[i];
+                    }
+                }
+                // Asignar al ComboBox
+                comBxCategorias.DataSource = categoriasValidas;
+                comBxCategorias.DisplayMember = "NombreCategoria";
+                comBxCategorias.ValueMember = "IdCategoria";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar las categorías: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

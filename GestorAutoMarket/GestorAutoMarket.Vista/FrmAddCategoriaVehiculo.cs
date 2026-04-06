@@ -8,16 +8,6 @@
  */
 using GestorAutoMarket.Entidades;
 using GestorAutoMarket.LogicaNegocios;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Windows.Forms;
 
 namespace GestorAutoMarket.Vista
 {
@@ -30,7 +20,8 @@ namespace GestorAutoMarket.Vista
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            try{
+            try
+            {
                 string nombreCategoria = txtBxNombreCategoria.Text.Trim();
                 string descripcionCategoria = txtBxDescripcionCategoria.Text.Trim();
 
@@ -59,16 +50,24 @@ namespace GestorAutoMarket.Vista
                 }
 
 
-                CategoriaVehiculo categoriaVehiculo = new CategoriaVehiculo(CategoriaVehiculoLN.cantidadCategorias, 
+                CategoriaVehiculo categoriaVehiculo = new CategoriaVehiculo(CategoriaVehiculoLN.cantidadCategorias,
                     nombreCategoria, descripcionCategoria);
-                CategoriaVehiculoLN.addCategoriaVehiculo(categoriaVehiculo);
+                CategoriaVehiculoLN.AddCategoriaVehiculo(categoriaVehiculo);
                 MessageBox.Show("Categoría de vehículo agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtBxNombreCategoria.Clear();
-                txtBxDescripcionCategoria.Clear();
-            } catch(Exception ex){
+                LimpiarCampos();
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("Error al registrar Categoría: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
-   
+            }
+
+        }
+
+        private void LimpiarCampos()
+        {
+            txtBxNombreCategoria.Clear();
+            txtBxDescripcionCategoria.Clear();
+            txtBxDescripcionCategoria.Focus();
         }
     }
 }

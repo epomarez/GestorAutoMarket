@@ -6,26 +6,22 @@
     Estudiante: Edrey Pomarez.
     Fecha: 22 de Febrero del 2026
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using GestorAutoMarket.Entidades;
-using GestorAutoMarket.AccesoDatos;
 
 namespace GestorAutoMarket.LogicaNegocios
 {
     public class VendedorLN
     {
-        public static int cantidadVendedores = 0;
-        public static bool addVendedor(Vendedor vendedor)
+        private static int cantidadVendedores = 0;
+        public static int CantidadVendedores => cantidadVendedores;
+        public static bool AddVendedor(Vendedor vendedor)
         {
             try
             {
                 if (vendedor == null) return false;
                 cantidadVendedores++;
-                return AccesoDatos.DataAccess.Add(Entidades.TipoEntidad.Vendedor,vendedor);
+                return AccesoDatos.DataAccess.Add(Entidades.TipoEntidad.Vendedor, vendedor);
             }
             catch (Exception ex)
             {
@@ -34,7 +30,7 @@ namespace GestorAutoMarket.LogicaNegocios
             }
         }
 
-        public static Vendedor[] getVendedores()
+        public static Vendedor[] GetVendedores()
         {
             try
             {

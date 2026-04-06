@@ -63,12 +63,18 @@ namespace GestorAutoMarket.Vista
                     nombreCategoria, descripcionCategoria);
                 CategoriaVehiculoLN.addCategoriaVehiculo(categoriaVehiculo);
                 MessageBox.Show("Categoría de vehículo agregada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtBxNombreCategoria.Clear();
-                txtBxDescripcionCategoria.Clear();
+                LimpiarCampos();
             } catch(Exception ex){
                 MessageBox.Show("Error al registrar Categoría: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
    
+        }
+
+        private void LimpiarCampos()
+        {
+            txtBxNombreCategoria.Clear();
+            txtBxDescripcionCategoria.Clear();
+            txtBxDescripcionCategoria.Focus();
         }
     }
 }

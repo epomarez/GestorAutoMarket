@@ -81,16 +81,22 @@ namespace GestorAutoMarket.Vista
                     identificacionVendedor, nombreVendedor, fechaNacimientoVendedor, DateTime.Today, telefono);
                 VendedorLN.addVendedor(vendedor);
                 MessageBox.Show("Vendedor registrado exitosamente.", "Registro Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtBxNombre.Clear();
-                txtBxIdentificacion.Clear();
-                txtBxTelefono.Clear();
-                dtpFechaNacimiento.Value = DateTime.Today;
+                LimpiarCampos();
             } catch (Exception ex) { 
                 MessageBox.Show("Error al registrar el vendedor: " + ex.Message, 
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
 
+        }
+
+        private void LimpiarCampos()
+        {
+            txtBxNombre.Clear();
+            txtBxIdentificacion.Clear();
+            txtBxTelefono.Clear();
+            dtpFechaNacimiento.Value = DateTime.Today;
+            txtBxNombre.Focus();
         }
     }
 }
